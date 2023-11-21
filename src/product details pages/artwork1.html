@@ -3,8 +3,10 @@
 
 <head>
     <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <base href="https://caitiminahan.github.io/ECommerceSite.github.io/">-->
     <title>Artwork 1 Details</title>
     <style>
         /*body {*/
@@ -406,6 +408,80 @@
 
         }
 
+        /* Add this CSS for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Adjust the styles for the modal content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* Adjust vertical margin to center the modal */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 200px; /* Set a fixed width for the modal */
+            text-align: center; /* Center the text horizontally */
+        }
+
+        /* Add a close button for the modal */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Add styles for the OK button in your CSS */
+        .ok-button {
+            background-color: rgba(102, 136, 111, 0.65);
+            color: white;
+            padding: 5px 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 40px;
+            margin-left: -15px;
+            position: absolute;
+        }
+
+        /* Hover effect for the OK button */
+        .ok-button:hover {
+            background-color: rgba(8, 51, 20, 0.65);
+        }
+
+        /* Add this to your existing styles */
+        #cartLink {
+            color: #e7dee4; /* Adjust the color to match your design */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+        }
+
+        #cartLink:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        #cartInfo {
+            font-size: 1.5em; /* Adjust the font size for the icon */
+            margin-left: 5px; /* Adjust the spacing between icon and text */
+        }
+
     </style>
 </head>
 
@@ -437,6 +513,13 @@
                     <!--                    TODO: research how to implement sign up functionality for static sites-->
                     <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
                 </div>
+
+<!--                <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>-->
+
+                <a href="checkout.html" id="cartLink">
+                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>
+                </a>
+
                 <div class="search-bar">
                     <!-- Search bar HTML -->
                     <input type="text" placeholder="Search Studio . . .">
@@ -470,7 +553,8 @@
         <h2>Artwork 1 Title</h2>
         <p>Description: Provide a detailed description of the artwork. This is a placeholder description.</p>
         <p>Price: $100.00</p>
-        <button>Add to Cart</button>
+<!--        <button>Add to Cart</button>-->
+        <button id="addToCartBtn" onclick="addToCart()">Add to Cart</button>
 
         <div class="personalization-section">
             <!-- New paragraph for estimated arrival date -->
@@ -520,6 +604,15 @@
             </div>
         </div>
 
+        <!-- Add this at the end of your body -->
+        <div id="customModal" class="modal">
+            <div class="modal-content">
+<!--                <span class="close" onclick="closeModal()">&times;</span>-->
+                <button class="ok-button" onclick="closeModal()">OK</button>
+                <p id="modalMessage"></p>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -529,6 +622,65 @@
 </footer>
 
 <script>
+
+    // Add this at the beginning of your script tag
+    var cart = [];
+
+    // Add this in your script tag
+    function addToCart() {
+        // Get the details of the current item (you may need to update this based on your actual data)
+        // var currentItem = {
+        //     title: "Artwork 1 Title",
+        //     description: "Provide a detailed description of the artwork.",
+        //     price: 100.00,
+        // };
+
+        var currentItem = {
+            title: "Artwork 1 Title",
+            description: "Provide a detailed description of the artwork.",
+            price: 100.00,
+            previewImage: "../artwork%20images/art1.jpg", // Add the previewImage property
+            // Add other details as needed
+        };
+
+        // Add the current item to the cart array
+        cart.push(currentItem);
+
+        // Update localStorage with the new cart data
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Show the custom modal
+        openModal("Item added to cart!");
+
+        // You can also update the cart icon or display the number of items in the cart
+        // For example, you can update a cart icon in your navigation bar
+        updateCartIcon();
+
+    }
+
+    function openModal(message) {
+        document.getElementById('modalMessage').textContent = message;
+        document.getElementById('customModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('customModal').style.display = 'none';
+    }
+
+    // Add this in your script tag
+    function updateCartIcon() {
+        // Get the cart information
+        var cartInfoElement = document.getElementById('cartInfo');
+        var cartLinkElement = document.getElementById('cartLink');
+
+        // Update the cart information with the shopping cart icon
+        cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i> (' + cart.length + ')';
+
+        // Set the href attribute of the anchor tag
+        cartLinkElement.href = 'checkout.html'; // Replace with the actual URL
+
+    }
+
     var currentIndex = 0;
     var imageSources = [
         '../artwork%20images/art1.jpg',
