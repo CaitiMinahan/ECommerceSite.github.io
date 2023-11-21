@@ -450,13 +450,15 @@
     <div class="container">
         <nav>
             <ul>
-                <h1><a href="../test.html" class="logo-link">Caiti Minahan Studio</a></h1>
+                <h1><a href="test_landing.html" class="logo-link">Caiti Minahan Studio</a></h1>
                 <div class="login-signin">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#login">Login</a></li>
-                    <li><a href="#signup">Sign Up</a></li>
+                    <li><a href="../../index.html" class="section-link">Home</a></li>
+                    <li><a href="../header%20nav%20links/gallery.html" class="section-link">Gallery</a></li>
+                    <li><a href="../header%20nav%20links/about_us.html" class="section-link">About Us</a></li>
+                    <!--                    TODO: research how to implement login functionality for static sites-->
+                    <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>
+                    <!--                    TODO: research how to implement sign up functionality for static sites-->
+                    <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
                 </div>
                 <div class="search-bar">
                     <!-- Search bar HTML -->
@@ -487,14 +489,18 @@
                 this virtual gallery will allow you to explore and acquire exclusive works of art.</p>
             <p class="welcome-message">Each piece is unique and thoughtfully crafted to incorporate my passion for creating and
                 showcase my craft. Explore my studio to celebrate individually and expression and shop to invite inspiration into your life!</p>
-            <div class="view-studio-button">
+<!--            <div class="view-studio-button">-->
+<!--                    <button>View Studio</button>-->
+<!--            </div>-->
+            <div class="view-studio-button" id="viewStudioButton">
                 <button>View Studio</button>
-
             </div>
+
         </div>
     </section>
 </div>
 
+<!--TODO: figure out why the footer does not appear-->
 <footer>
     <div class="copyright">
         <p>&copy; 2023 Caiti Minahan Studio. All rights reserved.</p>
@@ -529,6 +535,12 @@
 
     // Add a scroll event listener
     window.addEventListener('scroll', handleScroll);
+
+    document.getElementById('viewStudioButton').addEventListener('click', function() {
+        // Use window.location.href to navigate to the index.html page
+        window.location.href = '../../index.html';
+    });
+
 </script>
 
 
