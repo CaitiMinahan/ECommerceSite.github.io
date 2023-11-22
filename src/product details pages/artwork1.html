@@ -9,32 +9,6 @@
 <!--    <base href="https://caitiminahan.github.io/ECommerceSite.github.io/">-->
     <title>Artwork 1 Details</title>
     <style>
-        /*body {*/
-        /*    font-family: 'Arial', sans-serif;*/
-        /*    margin: 0;*/
-        /*    padding: 0;*/
-        /*    box-sizing: border-box;*/
-        /*    background-color: #f5f5f5;*/
-        /*    color: #333;*/
-        /*    display: flex;*/
-        /*    flex-direction: column;*/
-        /*    align-items: center;*/
-        /*    min-height: 100vh;*/
-        /*}*/
-
-        /*body {*/
-        /*    font-family: 'Arial', sans-serif;*/
-        /*    margin: 0;*/
-        /*    padding: 0;*/
-        /*    box-sizing: border-box;*/
-        /*    background-color: #f5f5f5;*/
-        /*    color: #333;*/
-        /*    display: flex;*/
-        /*    flex-direction: column;*/
-        /*    align-items: center;*/
-        /*    min-height: 100vh;*/
-        /*    width: 100%; !* Set body to full width *!*/
-        /*}*/
 
         body {
             font-family: 'Times New Roman', sans-serif;
@@ -57,24 +31,6 @@
             z-index: -1; /* Send it to the back */
         }
 
-
-        /*header {*/
-        /*    background-color: #333;*/
-        /*    color: #fff;*/
-        /*    padding: 10px;*/
-        /*    text-align: center;*/
-        /*    width: 100%;*/
-        /*}*/
-
-        /*header {*/
-        /*    background-color: #2a362d;*/
-        /*    color: #edf5f1;*/
-        /*    display: flex;*/
-        /*    justify-content: center;*/
-        /*    align-items: center; !* Center items along the cross-axis (vertically) *!*/
-        /*    font-size: 1.2em;*/
-        /*}*/
-
         header {
             background-color: #2a362d;
             color: #edf5f1;
@@ -87,17 +43,6 @@
             height: 50px;
         }
 
-
-        /*h1 {*/
-        /*    margin: 0;*/
-        /*    !*font-size: 30px;*!*/
-        /*    font-size: 2em;*/
-        /*    font-family: 'Times New Roman', sans-serif;*/
-        /*    font-weight: bold;*/
-        /*    !*margin-bottom: auto; !* Push it to the top *!*!*/
-        /*    justify-content: center; !* Center items horizontally *!*/
-        /*}*/
-
         h1 {
             /*font-size: 30px;*/
             font-size: 2em;
@@ -106,28 +51,6 @@
             /*margin-bottom: auto; !* Push it to the top *!*/
             margin-top: 20px;
         }
-
-
-        /*nav {*/
-        /*    margin-top: 0; !* Push the nav to the bottom *!*/
-        /*    !*justify-content: center; !* Center items horizontally *!*!*/
-        /*}*/
-
-        /*nav ul {*/
-        /*    list-style-type: none;*/
-        /*    margin: 0;*/
-        /*    padding: 0;*/
-        /*    display: flex;*/
-        /*    justify-content: center;*/
-        /*    width: 100%; !* Occupy the full width *!*/
-        /*}*/
-
-        /*nav ul li {*/
-        /*    !*display: inline;*!*/
-        /*    margin-inline: 100px;*/
-        /*    justify-content: center;*/
-
-        /*}*/
 
         nav {
             margin-top: 0;
@@ -218,14 +141,6 @@
             font-size: 1em;
 
         }
-
-        /*.container {*/
-        /*    display: flex;*/
-        /*    justify-content: space-between;*/
-        /*    align-items: flex-start;*/
-        /*    max-width: 1200px;*/
-        /*    margin: 20px auto;*/
-        /*}*/
 
         .container {
             display: flex;
@@ -498,23 +413,14 @@
             <ul>
                 <h1><a href="../main%20pages/test_landing.html" class="logo-link">Caiti Minahan Studio</a></h1>
                 <div class="login-signin">
-<!--                    <li><a href="#home">Home</a></li>-->
-                    <!--                    <li><a href="#gallery">Gallery</a></li>-->
                     <li><a href="../../index.html" class="section-link">Home</a></li>
-
                     <li><a href="../header%20nav%20links/gallery.html" class="section-link">Gallery</a></li>
-                    <!--                    <li><a href="#about">About Us</a></li>-->
                     <li><a href="../header%20nav%20links/about_us.html" class="section-link">About Us</a></li>
-                    <!-- Login/Signin HTML -->
-                    <!--                    <li><a href="#login">Login</a></li>-->
                     <!--                    TODO: research how to implement login functionality for static sites-->
                     <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>
-                    <!--                    <li><a href="#signup">Sign Up</a></li>-->
                     <!--                    TODO: research how to implement sign up functionality for static sites-->
                     <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
                 </div>
-
-<!--                <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>-->
 
                 <a href="checkout.html" id="cartLink">
                     <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>
@@ -624,17 +530,15 @@
 <script>
 
     // Add this at the beginning of your script tag
-    var cart = [];
+    // var cart = [];
+
+    // Add this at the beginning of your script tag
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
 
     // Add this in your script tag
     function addToCart() {
         // Get the details of the current item (you may need to update this based on your actual data)
-        // var currentItem = {
-        //     title: "Artwork 1 Title",
-        //     description: "Provide a detailed description of the artwork.",
-        //     price: 100.00,
-        // };
-
         var currentItem = {
             title: "Artwork 1 Title",
             description: "Provide a detailed description of the artwork.",
@@ -673,12 +577,17 @@
         var cartInfoElement = document.getElementById('cartInfo');
         var cartLinkElement = document.getElementById('cartLink');
 
-        // Update the cart information with the shopping cart icon
-        cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i> (' + cart.length + ')';
+        // Check if the cart is empty
+        if (cart.length === 0) {
+            // Update the cart information without the number of items
+            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+        } else {
+            // Update the cart information with the shopping cart icon and the number of items
+            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i> (' + cart.length + ')';
+        }
 
         // Set the href attribute of the anchor tag
         cartLinkElement.href = 'checkout.html'; // Replace with the actual URL
-
     }
 
     var currentIndex = 0;
@@ -741,7 +650,13 @@
     }
 
     // Call the function when the page loads
-    window.onload = updateEstimatedArrivalDate;
+    // window.onload = updateEstimatedArrivalDate;
+
+    window.onload = function () {
+        console.log('Page loaded. Cart:', cart); // Add this line for debugging
+        updateCartIcon(); // Update the cart icon
+        updateEstimatedArrivalDate(); // Update the estimated arrival date
+    };
 
 </script>
 
