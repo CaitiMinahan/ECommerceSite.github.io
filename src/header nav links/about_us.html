@@ -1,11 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- include library for magnifying glass for search -->
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta charset="UTF-8">
-    <title>Title</title>
-    poopy
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Caiti Minahan Studio</title>
+    <style>
+
+        /* Your existing styles */
+        body {
+            height: 100%; /* Adjust the height to your preference */
+            font-family: 'Times New Roman', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            position: relative;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #edf5f1;
+            opacity: 0.2; /* Adjust the opacity as needed */
+            z-index: -1; /* Send it to the back */
+        }
+
+        header {
+            background-color: #2a362d;
+            color: #edf5f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Change flex direction to column */
+            align-items: center; /* Center items along the cross-axis (vertically) */
+            font-size: 1.2em;
+            height: 50px;
+        }
+
+        h1 {
+            /*font-size: 30px;*/
+            font-size: 2em;
+            font-family: 'Times New Roman', sans-serif;
+            font-weight: bold;
+            /*margin-bottom: auto; !* Push it to the top *!*/
+            margin-top: 20px;
+        }
+
+        nav {
+            margin-top: 0;
+            display: flex;
+            justify-content: center; /* Center items along the main axis (horizontally) */
+            align-items: center;
+            flex-grow: 1; /* Allow the nav to grow and take available space */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between; /* Distribute items along the main axis */
+            align-items: center;
+            width: 100%; /* Occupy the full width */
+        }
+
+        nav ul li {
+            margin-inline: 90px; /* Adjust the spacing between the navigation links */
+        }
+
+        .logo-link {
+            color: inherit; /* Use the default link color */
+            text-decoration: inherit; /* Use the default underline style */
+            cursor: pointer; /* Show pointer cursor on hover */
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+        }
+
+        .logo-link:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        nav ul li a {
+            color: #e7dee4; /* Default link color */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+            font-size: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        .search-bar{
+            display: flex;
+            align-items: center;
+
+        }
+
+        .login-signin {
+            display: flex;
+            align-items: center;
+        }
+
+        /*TODO: research how to implement search*/
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            margin-right: 5px; /* Adjust the spacing between input and icon */
+            font-size: 1em;
+        }
+
+        .search-icon {
+            /*font-size: 18px;*/
+            font-size: 1em;
+            font-family: 'Times New Roman', sans-serif;
+            cursor: pointer;
+            color: #f2faf4; /* Adjust the color as needed */
+        }
+
+        .search-icon:hover {
+            color: rgba(135, 206, 155, 0.65); /* Adjust the color for the dimming effect */
+        }
+
+        .login-signin a {
+            color: #6f8f7e;
+            text-decoration: none;
+            text-align: left;
+            margin-top: auto; /* Push the nav to the bottom */
+            font-size: 1em;
+
+        }
+
+        /* New styles for the about me section */
+        section#about-me-page {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #about-me-content {
+            width: 60%;
+            margin-bottom: auto;
+        }
+
+        #about-me-image {
+            width: 30%;
+        }
+
+        #about-me-image img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        /* Add this to your existing styles */
+        #cartLink {
+            color: #e7dee4; /* Adjust the color to match your design */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+        }
+
+        #cartLink:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        #cartInfo {
+            font-size: 1.5em; /* Adjust the font size for the icon */
+            margin-left: 5px; /* Adjust the spacing between icon and text */
+        }
+
+        .view-studio-button {
+            z-index: 1;
+            color: inherit;
+            text-decoration: inherit;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+            margin-right: 90px;
+            margin-left: 50px;
+            margin-bottom: auto;
+        }
+
+        .view-studio-button button {
+            display: inline-flex;
+            padding: 5px 5px;
+            font-size: 24px;
+            font-family: 'Times New Roman', sans-serif;
+            text-decoration: none;
+            color: #fff;
+            background-color: #2a362d;
+            /*border: 2px solid #fff;*/
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            width: 10%;
+            justify-content: center;
+        }
+
+        .view-studio-button button:hover {
+            background-color: #fff;
+            color: rgba(8, 51, 20, 0.65);
+        }
+
+        footer {
+            background-color: rgba(8, 24, 6, 0.99);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 220px;
+        }
+
+        /* Media Query for Larger Screens */
+        @media screen and (min-width: 1600px) {
+            header {
+                font-size: 0.75em; /* Adjust the base font size for larger screens */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Adjust the font size for larger screens */
+                margin-left: 10px;
+            }
+
+            nav ul li a {
+                font-size: 1em; /* Adjust the font size for larger screens */
+            }
+
+            nav {
+                font-size: 1.15em;
+            }
+
+            nav ul {
+                font-size: 1em;
+            }
+
+            .search-icon {
+                font-size: 1em; /* Adjust the font size for larger screens */
+            }
+
+            .search-bar {
+                font-size: 0.75em;
+            }
+
+            .search-bar input{
+                font-size: 1em;
+            }
+
+            body {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+<header>
+
+    <!-- Your header content -->
+    <div class="background"></div>
+
+    <!--    <h1>Artwork Details</h1>-->
+    <div class="container">
+        <nav>
+            <ul>
+                <h1><a href="../main%20pages/test_landing.html" class="logo-link">Caiti Minahan Studio</a></h1>
+                <div class="login-signin">
+                    <li><a href="../../index.html" class="section-link">Home</a></li>
+                    <li><a href="../header%20nav%20links/gallery.html" class="section-link">Gallery</a></li>
+                    <li><a href="../header%20nav%20links/about_us.html" class="section-link">About Us</a></li>
+                    <!--                    TODO: research how to implement login functionality for static sites-->
+                    <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>
+                    <!--                    TODO: research how to implement sign up functionality for static sites-->
+                    <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
+                </div>
+
+                <li>
+                    <a href="../product%20details%20pages/checkout.html" id="cartLink"></a></li>
+                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>
+                </a>
+
+                <div class="search-bar">
+                    <!-- Search bar HTML -->
+                    <input type="text" placeholder="Search Studio . . .">
+                    <!-- Magnifying glass icon from Font Awesome -->
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                </div>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+
+<section id="about-me-page">
+    <div id="about-me-content">
+        <h2>About Me</h2>
+        <p class="about-me-paragraph">Write your about me content here. Feel free to talk about your passion for art, your journey, and what inspires you.</p>
+        <p class="about-me-paragraph">Write more about yourself. You can include your artistic style, techniques, and any upcoming projects.</p>
+        <!-- Add more paragraphs as needed -->
+
+        <!-- Social media details -->
+        <div id="social-media-container">
+            <h4>Follow me online</h4>
+            <p class="about-me-paragraph">Connect with me on social media:</p>
+            <p class="about-me-paragraph">Twitter: @yourTwitter</p>
+            <p class="about-me-paragraph">Instagram: @yourInstagram</p>
+            <!-- Add more social media links as needed -->
+        </div>
+    </div>
+
+    <div id="about-me-image">
+        <img src="../artwork%20images/aboutme.jpg" alt="Your Name">
+    </div>
+</section>
+
+<section id="view-studio-button">
+<!--    <div class="welcome-message-container">-->
+        <div class="view-studio-button" id="viewStudioButton">
+            <button>View Studio</button>
+        </div>
+<!--    </div>-->
+</section>
+
+<!-- Existing sections and content -->
+
+<footer>
+    &copy; 2023 Your Studio. All rights reserved.
+</footer>
+
+<script>
+
+    // Add this at the beginning of your script tag
+    // var cart = [];
+
+    // Add this at the beginning of your script tag
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add this in your script tag
+    function updateCartIcon() {
+        // Get the cart information
+        var cartInfoElement = document.getElementById('cartInfo');
+        var cartLinkElement = document.getElementById('cartLink');
+
+        // Check if the cart is empty
+        if (cart.length === 0) {
+            // Update the cart information without the number of items
+            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+        } else {
+            // Update the cart information with the shopping cart icon and the number of items
+            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i> (' + cart.length + ')';
+        }
+
+        // Set the href attribute of the anchor tag
+        cartLinkElement.href = 'checkout.html'; // Replace with the actual URL
+    }
+
+    var currentIndex = 0;
+    var imageSources = [
+        '../artwork%20images/art1.jpg',
+        '../artwork%20images/art2.jpg',
+        // Add more image sources as needed
+    ];
+
+    document.getElementById('viewStudioButton').addEventListener('click', function() {
+        // Use window.location.href to navigate to the index.html page
+        window.location.href = '../../index.html';
+    });
+
+    window.onload = function () {
+        console.log('Page loaded. Cart:', cart); // Add this line for debugging
+        updateCartIcon(); // Update the cart icon
+        updateEstimatedArrivalDate(); // Update the estimated arrival date
+    };
+
+</script>
+
 </body>
+
 </html>
