@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Add the PayPal SDK script -->
     <script src="https://www.paypal.com/sdk/js?client-id=ATVrgFCTvwpM3jguNL0x-NWPgmrZexmg4dr3Cup2f41eanMjuEQdvI6hfMu4sEMlTyE06Bnp76e-Chag"></script>
 
@@ -39,14 +40,13 @@
             justify-content: center;
             align-items: center;
             flex-direction: column; /* Change flex direction to column */
-            align-items: center; /* Center items along the cross-axis (vertically) */
-            font-size: 1em;
+            font-size: 1.2em;
             height: 50px;
         }
 
         h1 {
             /*font-size: 30px;*/
-            font-size: 1em;
+            font-size: 2em;
             font-family: 'Times New Roman', sans-serif;
             font-weight: bold;
             /*margin-bottom: auto; !* Push it to the top *!*/
@@ -57,19 +57,28 @@
             margin-left: 20px;
         }
 
+        /*.container {*/
+        /*    display: flex;*/
+        /*    justify-content: space-between;*/
+        /*    !*align-items: flex-start;*!*/
+        /*    width: 100%; !* Set container to full width *!*/
+        /*    margin: 20px auto;*/
+        /*    flex-direction: column;*/
+        /*    align-items: flex-start;*/
+        /*}*/
+
         .container {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 70%; /* Set container to full width */
-            /*margin: 20px auto;*/
             flex-direction: column;
+            align-items: center; /* Center everything horizontally */
+            text-align: center; /* Center text content */
+            margin: 20px auto;
         }
 
         nav {
             margin-top: 0;
             display: flex;
-            justify-content: center; /* Center items along the main axis (horizontally) */
+            justify-content: space-evenly; /* Center items along the main axis (horizontally) */
             align-items: center;
             flex-grow: 1; /* Allow the nav to grow and take available space */
         }
@@ -85,7 +94,7 @@
         }
 
         nav ul li {
-            margin-inline: 100px; /* Adjust the spacing between the navigation links */
+            margin-inline: 110px; /* Adjust the spacing between the navigation links */
         }
 
         .logo-link {
@@ -135,25 +144,47 @@
             font-size: 1em;
         }
 
+        .search-icon {
+            /*font-size: 18px;*/
+            font-size: 1em;
+            font-family: 'Times New Roman', sans-serif;
+            cursor: pointer;
+            color: #f2faf4; /* Adjust the color as needed */
+        }
+
+        .search-icon:hover {
+            color: rgb(210, 153, 8); /* Adjust the color for the dimming effect */
+        }
+
+        #cartSection {
+            text-align: center; /* Center the content within the section */
+            margin-top: 20px; /* Adjust the top margin as needed */
+        }
+
         /* Style for the right column */
         #right-column {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
-            width: 30%; /* Adjust the width as needed */
+            align-items: center;
+            width: 100%; /* Adjust the width as needed */
         }
 
         #paypal-button-container {
-            margin-top: 0; /* Adjust the top margin as needed */
-            margin-right: 20px;
+            margin-top: 20px; /* Adjust the top margin as needed */
+            /*margin-right: 20px;*/
         }
+
+        /*#checkoutButtons {*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*    margin-right: 6%;*/
+        /*}*/
 
         #checkoutButtons {
             display: flex;
             flex-direction: column;
-            margin-right: 6%;
+            margin-top: 20px; /* Adjust the top margin as needed */
         }
-
 
         button {
             background-color: rgba(8, 51, 20, 0.65);
@@ -172,19 +203,6 @@
             color: rgba(14, 75, 31, 0.65);
         }
 
-
-
-        .search-icon {
-            /*font-size: 18px;*/
-            font-size: 1em;
-            font-family: 'Times New Roman', sans-serif;
-            cursor: pointer;
-            color: #f2faf4; /* Adjust the color as needed */
-        }
-
-        .search-icon:hover {
-            color: rgba(135, 206, 155, 0.65); /* Adjust the color for the dimming effect */
-        }
 
         .login-signin a {
             color: #6f8f7e;
@@ -207,6 +225,32 @@
             margin-right: 10px;
         }
 
+        /* Add this to your existing styles */
+        #cartLink {
+            color: #e7dee4; /* Adjust the color to match your design */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+        }
+
+        #cartLink:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        #cartInfo {
+            font-size: 1.5em; /* Adjust the font size for the icon */
+            margin-left: 5px; /* Adjust the spacing between icon and text */
+        }
+
+        /* Add this to your existing styles */
+        #cartItemsList {
+            list-style-type: none; /* Remove the bullet points */
+            padding: 0; /* Remove default padding */
+        }
+
+        #cartItemsList li {
+            margin-bottom: 10px; /* Adjust spacing between cart items */
+        }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -219,12 +263,12 @@
         /* Media Query for Larger Screens */
         @media screen and (min-width: 1600px) {
             header {
-                font-size: 0.70em; /* Adjust the base font size for larger screens */
+                font-size: 0.75em; /* Adjust the base font size for larger screens */
             }
 
             h1 {
                 font-size: 1.2em; /* Adjust the font size for larger screens */
-                justify-content: space-between;
+                margin: 0;
             }
 
             nav ul li a {
@@ -236,7 +280,10 @@
             }
 
             nav ul {
-                font-size: 1em;
+                margin: 0;
+                padding: 0;
+                align-items: center;
+                width: 100%;
             }
 
             .search-icon {
@@ -249,10 +296,6 @@
 
             .search-bar input{
                 font-size: 1em;
-            }
-
-            body {
-                width: 100%;
             }
         }
 
@@ -279,6 +322,10 @@
                     <!--                    TODO: research how to implement sign up functionality for static sites-->
                     <li><a href="../src/header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
                 </div>
+
+                <a href="checkout.html" id="cartLink">
+                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>
+                </a>
 
                 <div class="search-bar">
                     <!-- Search bar HTML -->
@@ -323,8 +370,15 @@
         <div id="paypal-button-container"></div>
     </div>
 
-</div>
+    <!-- Check if the cart is not empty before displaying item preview and title -->
+    <div class="container" id="artworkContainer">
+        <div class="item-preview" id="artworkPreview">
+            <!-- Artwork preview will be dynamically added here -->
+        </div>
+        <span class="artwork-title" id="artworkTitle"></span>
+    </div>
 
+</div>
 
 
 <!-- Include your other scripts -->
@@ -353,6 +407,42 @@
 
     // Function to display items in the cart
     // Function to display items in the cart
+    // function displayCartItems() {
+    //     var cartItemsList = document.getElementById('cartItemsList');
+    //     cartItemsList.innerHTML = ''; // Clear existing content
+    //
+    //     // Check if the cart is empty
+    //     if (!cart || cart.length === 0) {
+    //         // If the cart is empty or not initialized, display a message
+    //         var emptyCartMessage = document.createElement('p');
+    //         emptyCartMessage.textContent = 'Your cart is empty . . . get to shopping!';
+    //         cartItemsList.appendChild(emptyCartMessage);
+    //     } else {
+    //         // If the cart is not empty, generate and display item previews
+    //         for (var i = 0; i < cart.length; i++) {
+    //             var item = cart[i];
+    //             var listItem = document.createElement('li');
+    //             var itemDiv = document.createElement('div');
+    //             var img = document.createElement('img');
+    //             var span = document.createElement('span');
+    //
+    //             img.src = item.previewImage;
+    //             img.alt = item.title;
+    //             img.className = 'cart-item-image';
+    //
+    //             span.textContent = `${item.title} - $${item.price.toFixed(0)}`;
+    //
+    //             itemDiv.appendChild(img);
+    //             itemDiv.appendChild(span);
+    //             listItem.appendChild(itemDiv);
+    //
+    //             cartItemsList.appendChild(listItem);
+    //
+    //         }
+    //     }
+    // }
+
+    // Function to display items in the cart
     function displayCartItems() {
         var cartItemsList = document.getElementById('cartItemsList');
         cartItemsList.innerHTML = ''; // Clear existing content
@@ -369,17 +459,28 @@
                 var item = cart[i];
                 var listItem = document.createElement('li');
                 var itemDiv = document.createElement('div');
+                var imgDiv = document.createElement('div'); // Wrapper for the image
                 var img = document.createElement('img');
-                var span = document.createElement('span');
+                var detailsDiv = document.createElement('div'); // Wrapper for title and price
+                var title = document.createElement('span');
+                var price = document.createElement('span');
 
                 img.src = item.previewImage;
                 img.alt = item.title;
                 img.className = 'cart-item-image';
 
-                span.textContent = `${item.title} - $${item.price.toFixed(0)}`;
+                title.textContent = item.title;
+                price.textContent = ` - $${item.price.toFixed(0)}`;
 
-                itemDiv.appendChild(img);
-                itemDiv.appendChild(span);
+                // Add styles to the image wrapper and details wrapper
+                imgDiv.style.display = 'inline-block'; // Display image and details in the same line
+                detailsDiv.style.textAlign = 'center'; // Align text to the left
+
+                imgDiv.appendChild(img);
+                detailsDiv.appendChild(title);
+                detailsDiv.appendChild(price);
+                itemDiv.appendChild(imgDiv);
+                itemDiv.appendChild(detailsDiv);
                 listItem.appendChild(itemDiv);
 
                 cartItemsList.appendChild(listItem);
