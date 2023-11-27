@@ -40,25 +40,30 @@
             align-items: center;
             flex-direction: column; /* Change flex direction to column */
             align-items: center; /* Center items along the cross-axis (vertically) */
-            font-size: 1.2em;
+            font-size: 1em;
             height: 50px;
         }
 
         h1 {
             /*font-size: 30px;*/
-            font-size: 2em;
+            font-size: 1em;
             font-family: 'Times New Roman', sans-serif;
             font-weight: bold;
             /*margin-bottom: auto; !* Push it to the top *!*/
             margin-top: 20px;
         }
 
+        h2 {
+            margin-left: 20px;
+        }
+
         .container {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            width: 100%; /* Set container to full width */
-            margin: 20px auto;
+            width: 70%; /* Set container to full width */
+            /*margin: 20px auto;*/
+            flex-direction: column;
         }
 
         nav {
@@ -130,6 +135,45 @@
             font-size: 1em;
         }
 
+        /* Style for the right column */
+        #right-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 30%; /* Adjust the width as needed */
+        }
+
+        #paypal-button-container {
+            margin-top: 0; /* Adjust the top margin as needed */
+            margin-right: 20px;
+        }
+
+        #checkoutButtons {
+            display: flex;
+            flex-direction: column;
+            margin-right: 6%;
+        }
+
+
+        button {
+            background-color: rgba(8, 51, 20, 0.65);
+            color: rgb(237, 248, 240);
+            padding: 8px 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.3s ease-in-out;
+            margin-bottom: 15px;
+            width: 200px;
+        }
+
+        button:hover {
+            background-color: rgba(14, 75, 31, 0.35);
+            color: rgba(14, 75, 31, 0.65);
+        }
+
+
+
         .search-icon {
             /*font-size: 18px;*/
             font-size: 1em;
@@ -169,17 +213,18 @@
             text-align: center;
             padding: 10px;
             width: 100%;
-            margin-top: 270px;
+            margin-top: 100vh;
         }
+
         /* Media Query for Larger Screens */
-        @media screen and (min-width: 600px) {
+        @media screen and (min-width: 1600px) {
             header {
-                font-size: 0.75em; /* Adjust the base font size for larger screens */
+                font-size: 0.70em; /* Adjust the base font size for larger screens */
             }
 
             h1 {
-                font-size: 1.5em; /* Adjust the font size for larger screens */
-                margin-left: 10px;
+                font-size: 1.2em; /* Adjust the font size for larger screens */
+                justify-content: space-between;
             }
 
             nav ul li a {
@@ -206,6 +251,9 @@
                 font-size: 1em;
             }
 
+            body {
+                width: 100%;
+            }
         }
 
     </style>
@@ -238,8 +286,10 @@
                     <!-- Magnifying glass icon from Font Awesome -->
                     <span class="search-icon"><i class="fas fa-search"></i></span>
                 </div>
+
             </ul>
         </nav>
+
     </div>
 
 </header>
@@ -247,88 +297,53 @@
 
 <div class="container">
     <section>
-        <section id="cartSection">
-        <h2>Shopping Cart</h2>
-        <ul id="cartItemsList">
-            <!--TODO: Cart items will be dynamically added here -->
-        </ul>
 
+        <section id="cartSection">
+
+        <h2>Shopping Cart</h2>
+
+            <ul id="cartItemsList">
+
+            <!--TODO: Cart items will be dynamically added here -->
+            </ul>
         </section>
     </section>
     <!-- Add other sections or content as needed -->
-</div>
 
-<!-- Checkout Buttons -->
-<div id="checkoutButtons">
-    <!-- Add a button to clear the cart -->
-    <button onclick="clearCart()">Clear Cart</button>
+    <!-- Right column for PayPal buttons -->
+    <div id="right-column">
+        <section id="checkoutButtons">
+            <!-- Add a button to clear the cart -->
+            <button onclick="clearCart()">Clear Cart</button>
+            <button onclick="continueShopping()">Continue Shopping</button>
+            <!--            <button onclick="proceedToCheckout()">Proceed to Checkout</button>-->
+        </section>
 
-<!--    TODO: have continue shopping bring you back to the home page -->
-    <button onclick="continueShopping()">Continue Shopping</button>
-
-<!--    <button onclick="proceedToPayment()">Proceed to Payment</button>-->
-
-    <!-- Add a button to proceed to checkout or perform other actions -->
-<!--    TODO: have the proceed to checkout take you to the payment method-->
-    <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+        <!-- Container for the PayPal button -->
+        <div id="paypal-button-container"></div>
+    </div>
 
 </div>
 
-<!-- Container for the PayPal button -->
-<div id="paypal-button-container"></div>
+
 
 <!-- Include your other scripts -->
-<script src="../../app.js"></script>
+<!--<script src="../../app.js"></script>-->
 
 <footer>
     &copy; 2023 Your Studio. All rights reserved.
 </footer>
 
 <script>
-    // Load cart data from local storage
-    // var cart = JSON.parse(localStorage.getItem('cart')) || [];
-    // console.log(cart); // Add this line
 
-    // Function to display items in the cart
-    // function displayCartItems() {
-    //     var cartItemsList = document.getElementById('cartItemsList');
-    //     cartItemsList.innerHTML = ''; // Clear existing content
-    //
-    //     cart.forEach(function (item) {
-    //         var listItem = document.createElement('li');
-    //         listItem.innerHTML = `
-    //         <div>
-    //             <img src="${item.previewImage}" alt="${item.title}" class="cart-item-image">
-    //             <span>${item.title} - $${item.price.toFixed(2)}</span>
-    //         </div>
-    //     `;
-    //         cartItemsList.appendChild(listItem);
-    //     });
-    // }
+    // Function to continue shopping and navigate to the home page
+    function continueShopping() {
+        // Set the URL of the home page
+        // var homePageURL = "../index.html";
 
-    // function displayCartItems() {
-    //     var cartItemsList = document.getElementById('cartItemsList');
-    //     cartItemsList.innerHTML = ''; // Clear existing content
-    //
-    //     // Check if the cart is not empty
-    //     if (cart.length > 0) {
-    //         cart.forEach(function (item) {
-    //             var listItem = document.createElement('li');
-    //             listItem.innerHTML = `
-    //             <div>
-    //                 <img src="${item.previewImage}" alt="${item.title}" class="cart-item-image">
-    //                 <span>${item.title} - $${item.price.toFixed(2)}</span>
-    //             </div>
-    //         `;
-    //             cartItemsList.appendChild(listItem);
-    //         });
-    //     } else {
-    //         // If the cart is empty, display a message or perform other actions
-    //         var emptyCartMessage = document.createElement('p');
-    //         emptyCartMessage.textContent = 'Your cart is empty.';
-    //         cartItemsList.appendChild(emptyCartMessage);
-    //     }
-    // }
+        // Navigate to the home page
+        window.location.href = "../../index.html";
+    }
 
     // Load cart data from local storage
     var cart = JSON.parse(localStorage.getItem('cart'));
@@ -346,7 +361,7 @@
         if (!cart || cart.length === 0) {
             // If the cart is empty or not initialized, display a message
             var emptyCartMessage = document.createElement('p');
-            emptyCartMessage.textContent = 'Your cart is empty.';
+            emptyCartMessage.textContent = 'Your cart is empty . . . get to shopping!';
             cartItemsList.appendChild(emptyCartMessage);
         } else {
             // If the cart is not empty, generate and display item previews
@@ -392,7 +407,6 @@
         alert('Cart cleared');
     }
 
-    // TODO: add continueShopping() method ??
 
     // Call the displayCartItems function when the page loads
     window.onload = function () {
