@@ -73,7 +73,7 @@
         }
 
         nav ul li {
-            margin-inline: 90px; /* Adjust the spacing between the navigation links */
+            margin-inline: 92px; /* Adjust the spacing between the navigation links */
         }
 
         .logo-link {
@@ -104,6 +104,7 @@
 
         }
 
+        /*TODO: research how to implement login and signup*/
         .login-signin {
             display: flex;
             align-items: center;
@@ -113,8 +114,6 @@
         .search-bar {
             display: flex;
             align-items: center;
-            margin-right: 20px;
-            margin-left: 20px;
         }
 
         .search-bar input {
@@ -152,6 +151,7 @@
             margin-top: 20px;
         }
 
+        /*TODO: fill in about me text */
         #about-me-content {
             width: 60%;
             margin-bottom: auto;
@@ -171,6 +171,7 @@
             color: #e7dee4; /* Adjust the color to match your design */
             text-decoration: none;
             transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+            margin-right: 20px;
         }
 
         #cartLink:hover {
@@ -225,11 +226,11 @@
         /* Media Query for Larger Screens */
         @media screen and (min-width: 1600px) {
             header {
-                font-size: 0.75em; /* Adjust the base font size for larger screens */
+                font-size: 0.8em; /* Adjust the base font size for larger screens */
             }
 
             h1 {
-                font-size: 1.5em; /* Adjust the font size for larger screens */
+                font-size: 1.3em; /* Adjust the font size for larger screens */
                 margin-left: 10px;
             }
 
@@ -284,12 +285,16 @@
                     <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>
                     <!--                    TODO: research how to implement sign up functionality for static sites-->
                     <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
+<!--                    <li><a href="../product%20details%20pages/checkout.html" id="cartLink">-->
+<!--                        <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>-->
+<!--                    </a></li>-->
                 </div>
 
-                <li>
-                    <a href="../product%20details%20pages/checkout.html" id="cartLink"></a></li>
-                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>
-                </a>
+<!--                <a href="../product%20details%20pages/checkout.html" id="cartLink">-->
+<!--                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>-->
+<!--                </a>-->
+
+                <li><a href="../product%20details%20pages/checkout.html" id="cartLink"><i class="fas fa-shopping-cart"></i></a></li>
 
                 <div class="search-bar">
                     <!-- Search bar HTML -->
