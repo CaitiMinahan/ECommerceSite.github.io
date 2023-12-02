@@ -1,130 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--TODO: rearrange files so this is the shop.html-->
+
 <head>
-    <!-- include library for magnifying glass for search -->
-    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Art Gallery</title>
+    <title>Welcome to Your Art Gallery</title>
+    <!-- Include the styles from your original script -->
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <style>
-        section#gallery h2 {
-            color: rgba(0, 0, 0, 0.96); /* Change this to the desired color */
-            font-size: 30px;
-            font-family: 'Times New Roman', sans-serif;
-            margin-top: 10px;
-            margin-right: 20%;
-        }
-
-        section#gallery {
-            height: 100%; /* Adjust the height to your preference */
-            display: flex;
-            flex-direction: column;
-            width: 80%;
-            margin-right: 2%;
-            margin-left: 1%;
-            justify-content: center;
-            float: right;
-            margin-bottom: 100%;
-        }
-
-        section#home {
-            background-color: rgb(77, 58, 47, 0.65); /* Add a background color behind the home section */
-            height: 100%; /* Adjust the height to your preference */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative; /* Add position relative to section#home */
-        }
-
-        h4 {
-            color: rgba(0, 0, 0, 0.96); /* Change this to the desired color */
-            font-size: 30px;
-            font-family: 'Times New Roman', sans-serif;
-            margin: 0;
-            justify-content: center;
-            margin-right: 20px;
-            margin-left: -10px;
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-        }
-
-        h5 {
-            color: rgba(0, 0, 0, 0.96); /* Change this to the desired color */
-            font-size: 30px;
-            font-family: 'Times New Roman', sans-serif;
-            justify-content: center;
-            margin: 0;
-        }
-
-        section#about-me {
-            width: 15%; /* Adjust the width of the about me section */
-            float: left;
-            font-size: 20px;
-            background-color: rgba(135, 206, 155, 0.2);
-            color: #fff;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            position: relative;
-        }
-
-        .about-me-paragraph {
-            width: 90%; /* Adjust the width to make it wider within the fixed height */
-            font-size: 20px;
-            color: rgba(0, 0, 0, 0.96);
             height: 100%;
-            overflow-y: auto; /* Add vertical scroll if content exceeds the fixed height */
-            position: relative;
-        }
-
-        #social-media p {
-            margin: 0;
-        }
-
-        #social-media h4 {
-            margin-bottom: 10px;
-        }
-
-        #social-media a {
-            color: #fff; /* Adjust the color of links if needed */
-        }
-
-        section#home h2{
-            color: #f8f6f4;
-            font-size: 30px;
-            font-family: 'Times New Roman', sans-serif;
-            margin: 0; /* Remove default margin */
-            text-align: center; /* Center the text */
-            display: inherit;
-            justify-content: inherit;
-        }
-
-        section#home::before,
-        section#home::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 650px; /* Adjust the width of the design elements */
-            height: 2px; /* Adjust the height of the design elements */
-            background-color: #f8f6f4; /* Adjust the color of the design elements */
-        }
-
-        section#home::before {
-            left: 20px; /* Adjust the distance of the left design element */
-            transform: translateY(100%);
-        }
-
-        section#home::after {
-            right: 20px; /* Adjust the distance of the right design element */
-            transform: translateY(100%);
-        }
-
-        section#home h2,
-        section#home p {
-            color: #f8f6f4; /* Change this to the desired color */
-            margin: 0; /* Remove default margin */
-            font-size: 25px;
+            background: rgba(0, 0, 0, 2);
+            z-index: -1;
         }
 
         body {
@@ -134,125 +28,15 @@
             box-sizing: border-box;
             font-size: 20px;
             position: relative;
-            overflow-x: hidden; /* Hide horizontal scrollbar */
-        }
-
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('src/background images/background4.jpg') center/cover;
-            opacity: 0.7; /* Adjust the opacity as needed */
-            z-index: -1; /* Send it to the back */
-        }
-
-        header {
-            background-color: #2a362d;
-            color: #edf5f1;
-            padding: 10px 10px; /* Added padding to the header */
+            overflow-x: hidden;
             display: flex;
-            justify-content: space-evenly;
-            flex-direction: column; /* Change flex direction to column */
-            align-items: center; /* Center items along the cross-axis (vertically) */
-            font-size: 1.2em;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        h1 {
-            margin: 0;
-            /*font-size: 30px;*/
-            font-size: 2em;
-            font-family: 'Times New Roman', sans-serif;
-            font-weight: bold;
-            /*margin-bottom: auto; !* Push it to the top *!*/
-            margin-top: 5px;
-        }
+        /* Add this media query for screens with a maximum width of 768px */
+        @media screen and (max-width: 768px) {
 
-        nav {
-            margin-top: 0; /* Push the nav to the bottom */
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-between;
-
-        }
-
-        nav ul li {
-            /*display: inline;*/
-            margin-inline: 80px;
-
-        }
-
-        .logo-link {
-            color: inherit; /* Use the default link color */
-            text-decoration: inherit; /* Use the default underline style */
-            cursor: pointer; /* Show pointer cursor on hover */
-            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
-        }
-
-        .logo-link:hover {
-            color: #ff9900; /* Change this to the desired color on hover */
-        }
-
-        nav ul li a {
-            color: #e7dee4; /* Default link color */
-            text-decoration: none;
-            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
-            font-size: 1em;
-        }
-
-        nav ul li a:hover {
-            color: #ff9900; /* Change this to the desired color on hover */
-        }
-
-        .search-bar{
-            display: flex;
-        }
-
-        .login-signin {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-bar input {
-            padding: 8px;
-            margin-right: 5px; /* Adjust the spacing between input and icon */
-            font-size: 1em;
-        }
-
-        .search-icon {
-            /*font-size: 18px;*/
-            font-size: 1em;
-            font-family: 'Times New Roman', sans-serif;
-            cursor: pointer;
-            color: #f2faf4; /* Adjust the color as needed */
-        }
-
-        .search-icon:hover {
-            color: rgba(135, 206, 155, 0.65); /* Adjust the color for the dimming effect */
-        }
-
-        .login-signin a {
-            color: #6f8f7e;
-            text-decoration: none;
-            text-align: left;
-            margin-top: auto; /* Push the nav to the bottom */
-            font-size: 1em;
-
-        }
-
-        /* Media Query for Larger Screens */
-        @media screen and (min-width: 1200px) {
             header {
                 font-size: 0.75em; /* Adjust the base font size for larger screens */
             }
@@ -272,105 +56,32 @@
                 font-size: 1em;
             }
 
+            .carousel-container {
+                width: 90%; /* Adjust the width for smaller screens */
+                margin-left: auto; /* Center the carousel on smaller screens */
+                margin-right: auto;
+            }
+
+            .welcome-message-container {
+                padding: 60px 10px; /* Adjust the padding for smaller screens */
+            }
+
+            .view-studio-button {
+                margin-right: 10px; /* Adjust the margin for smaller screens */
+            }
+
             .search-icon {
-                font-size: 1em; /* Adjust the font size for larger screens */
+                font-size: 0.2em; /* Adjust the font size for larger screens */
             }
 
             .search-bar {
-                font-size: 0.75em;
+                font-size: 0.2em;
             }
 
             .search-bar input{
-                font-size: 1em;
+                font-size: 0.2em;
             }
 
-        }
-
-        section {
-            padding: 5px 0;
-            text-align: center;
-        }
-
-        .container {
-            width: 100%;
-            margin: 0;
-        }
-
-        .artwork {
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            width: auto;
-        }
-
-        .artwork-item {
-            position: relative;
-            margin-bottom: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .artwork-details {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 10px;
-            background: rgba(80, 101, 87, 0.75);
-            color: #fff;
-            opacity: 0;
-            z-index: 1; /* Ensure it appears in front of the image */
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .artwork-item:hover .artwork-details {
-            opacity: 1; /* Show the details on hover */
-        }
-
-        .artwork-item img {
-            width: 100%;
-            height: 350px; /* Adjust the height as needed */
-            object-fit: cover;
-        }
-
-        .artwork-details h3 {
-            margin: 0;
-        }
-
-        .artwork-details p {
-            margin: 5px 0;
-        }
-
-        /*TODO: fill out the new product pages*/
-        .artwork-details button {
-            color: rgba(0, 0, 0, 0.96);
-            border: none;
-            padding: 8px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .artwork-details button:hover {
-            background-color: rgba(8, 51, 20, 0.65); /* Adjust the color for the dimming effect */
-            color: rgb(237, 248, 240);
-
-        }
-
-        /* Add this style for the hover effect */
-        .section-link:hover {
-            color: #ff9900; /* Change this to the desired color on hover */
-            text-decoration: none; /* Add an underline on hover */
-        }
-
-        /* Add this style to remove the default link styles */
-        .section-link {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block; /* Make it a block element */
         }
 
         form {
@@ -379,68 +90,278 @@
             align-items: center;
         }
 
-        /*TODO: figure out why footer is so far down*/
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('src/background images/background4.jpg') center/cover;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        h4 {
+            font-size: 40px;
+            font-family: 'Times New Roman', sans-serif;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: 0;
+            margin-right: 110px;
+            text-align: center;
+            color: #f2faf4;
+        }
+
+        header {
+            background-color: #2a362d;
+            color: #edf5f1;
+            padding: 10px 10px; /* Added padding to the header */
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column; /* Change flex direction to column */
+            align-items: center; /* Center items along the cross-axis (vertically) */
+            font-size: 0.9em;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.3em;
+            font-family: 'Times New Roman', sans-serif;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        nav {
+            margin-top: 0; /* Push the nav to the bottom */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        nav ul li {
+            margin-inline: 80px;
+        }
+
+        .logo-link {
+            color: inherit;
+            text-decoration: inherit;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .logo-link:hover {
+            color: #ff9900;
+        }
+
+        nav ul li a {
+            color: #e7dee4;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ff9900;
+        }
+
+        .carousel-container {
+            width: 50%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            margin-right: 10px;
+            margin-left: 10px;
+            height:auto;
+        }
+
+        .login-signin {
+            display: flex;
+            align-items: center;
+        }
+
+        .login-signin a {
+            color: #6f8f7e;
+            text-decoration: none;
+            text-align: left;
+            margin-top: auto;
+        }
+
+        section {
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        section#view-studio-button {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            width: 60%;
+        }
+
+        section#home h2,
+        section#home p {
+            color: #f8f6f4;
+            margin: 0;
+        }
+
+        .welcome-message-container {
+            padding: 100px 0px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin-right: 100px;
+        }
+
+        .welcome-message {
+            font-family: 'Times New Roman', sans-serif;
+            color: #f2faf4;
+            font-size: 24px;
+            padding: 10px;
+            margin-right: 100px;
+        }
+
+        .content-container {
+            display: flex;
+            flex: 1;
+            padding-bottom: 50px;
+        }
+
+        .carousel-container {
+            width: 70%;
+            overflow: hidden;
+            position: relative;
+            margin-top: 100px;
+            margin-left: 190px;
+            margin-right: 30px;
+        }
+
+        .view-studio-button {
+            margin-top: 40px;
+            z-index: 1;
+            color: inherit;
+            text-decoration: inherit;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+            margin-right: 90px;
+        }
+
+        .view-studio-button button {
+            display: inline-flex;
+            padding: 10px 10px;
+            font-size: 24px;
+            font-family: 'Times New Roman', sans-serif;
+            text-decoration: none;
+            color: #fff;
+            background-color: #2a362d;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .view-studio-button button:hover {
+            background-color: #fff;
+            color: rgba(8, 51, 20, 0.65);
+        }
+
+        .search-bar{
+            display: flex;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            margin-right: 5px; /* Adjust the spacing between input and icon */
+            font-size: 0.75em;
+        }
+
+        .search-icon {
+            /*font-size: 18px;*/
+            font-size: 1em;
+            font-family: 'Times New Roman', sans-serif;
+            cursor: pointer;
+            color: #f2faf4; /* Adjust the color as needed */
+        }
+
+        .search-icon:hover {
+            color: rgba(135, 206, 155, 0.65); /* Adjust the color for the dimming effect */
+        }
+
         footer {
             background-color: #2a362d;
             color: #fff;
             text-align: center;
+            /*padding: 10px 0;*/
+            position: fixed;
             width: 100%;
-            display: flex;
-            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            bottom: 0;
+            display: none;
+            flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
-            position: relative;
+            z-index: 2;
         }
-
         footer div {
             max-width: 30%; /* Adjust the width as needed */
-            margin: 2px 0; /* Reduce margin for spacing between sections */
-            font-size: 13px; /* Reduce font size */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            margin-bottom: 5px; /* Add margin between the sections */
+            padding: 0 15px; /* Adjust the padding */
         }
 
         footer div:last-child {
             border-right: none; /* Remove the border from the last section */
             padding-right: 0; /* Remove padding from the last section */
+            font-size: 15px;
         }
 
         footer h3 {
-            margin-bottom: 2px; /* Reduce space between title and content */
+            margin: 0;
         }
 
         footer p {
             margin: 0;
         }
 
-        .separator {
+        .copyright {
             width: 100%;
-            height: 1px; /* Reduce the height of the separator */
-            /*margin-top: 1px; !* Adjust the margin as needed *!*/
-            margin: 0;
-            background-color: #fff;
+            margin-top: 10px; /* Add space between the sections and copyright */
         }
-
-        footer .copyright {
-            width: 100%;
-            margin-top: 10px; /* Reduce space between the sections and copyright */
-        }
-
     </style>
 </head>
 
 <body>
 <header>
-    <!-- Your header content -->
     <div class="background"></div>
 
     <div class="container">
         <nav>
             <ul>
-                <h1><a href="src/main%20pages/test_landing.html" class="logo-link">Caiti Minahan Studio</a></h1>
+                <h1><a href="index.html" class="logo-link">Caiti Minahan Studio</a></h1>
                 <div class="login-signin">
-                    <li><a href="index.html" class="section-link">Home</a></li>
+                    <li><a href="src/main%20pages/shop.html" class="section-link">Home</a></li>
                     <li><a href="src/header%20nav%20links/gallery.html" class="section-link">Gallery</a></li>
                     <li><a href="src/header%20nav%20links/about_us.html" class="section-link">About Us</a></li>
                     <!--                    TODO: research how to implement login functionality for static sites-->
@@ -459,176 +380,181 @@
     </div>
 </header>
 
-<section id="home">
-    <!-- Your home section content -->
-    <div class="container">
-        <h2>Shop One Of A Kind Pieces</h2>
-        <p>Handcrafted with passion, sold with purpose.</p>
-    </div>
-</section>
-
-<!--TODO: maybe this section instead should be a "shop by" section-->
-<!--TODO: also, fill in this about me section -->
-<!--with the below sections being a bio and socials section -->
-<section id="about-me">
-    <div class="container">
-        <h5>About Me</h5>
-        <p class="about-me-paragraph">Write your about me content here.</p>
-        <p class="about-me-paragraph">Write your about me content here.</p>
-        <p class="about-me-paragraph">Write your about me content here.</p>
-        <p class="about-me-paragraph">Write your about me content here.</p>
-        <p class="about-me-paragraph">...</p>
-        <p class="about-me-paragraph">...</p>
-        <!-- Add social media details below -->
-        <div id="social-media-container">
-            <h4>Follow us online</h4>
-            <p class="about-me-paragraph">Connect with me on social media:</p>
-            <p class="about-me-paragraph">Twitter: @yourTwitter</p>
-            <p class="about-me-paragraph">Instagram: @yourInstagram</p>
-            <p class="about-me-paragraph">...</p>
-            <p class="about-me-paragraph">...</p>
-            <p class="about-me-paragraph">...</p>
-            <p class="about-me-paragraph">...</p>
-            <p class="about-me-paragraph">...</p>
-            <!-- End social media details -->
+<div class="content-container">
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item"><img src="src/artwork%20images/art1.jpg" alt="Artwork 1"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/art2.jpg" alt="Artwork 2"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/art3.jpg" alt="Artwork 3"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/art4.jpg" alt="Artwork 4"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/art5.jpg" alt="Artwork 5"></div>
         </div>
     </div>
-</section>
 
-<section id="gallery">
-    <div class="container">
-        <h2><a href="src/header%20nav%20links/gallery.html" class="section-link">View Gallery</a></h2>
-        <div class="artwork">
-            <!-- Add your artwork images and details here -->
-            <!-- TODO: adjust image sizes to all be the same in paint -->
-            <div class="artwork-item">
-                <a href="src/product%20details%20pages/artwork1.html">
-                    <img src="src/artwork%20images/art1.jpg" alt="Artwork 1">
-                    <div class="artwork-details">
-                        <h3>Artwork 1</h3>
-                        <!--                        <p>Price: $100</p>-->
-                        <button>View Products</button>
-                    </div>
-                </a>
-            </div>
-            <!-- Product 2 -->
-            <div class="artwork-item">
-                <a href="src/product%20details%20pages/artwork2.html">
-                    <img src="src/artwork%20images/art1.jpg" alt="Artwork 2">
-                    <div class="artwork-details">
-                        <h3>Artwork 2</h3>
-                        <button>View Products</button>
-                    </div>
-                </a>
+    <section id="view-studio-button">
+        <div class="welcome-message-container">
+            <h4>Welcome to my studio!</h4>
+            <p class="welcome-message">As an independent artist, my goal is to create one of a kind pieces to be shared and enjoyed. Doubling as an ecommerce studio,
+                this virtual gallery will allow you to explore and acquire exclusive works of art.</p>
+            <p class="welcome-message">Each piece is unique and thoughtfully crafted to incorporate my passion for creating and
+                showcase my craft. Explore my studio to celebrate individually and expression and shop to invite inspiration into your life!</p>
+            <div class="view-studio-button" id="viewStudioButton">
+                <button>View Studio</button>
             </div>
 
-            <!-- Product 3 -->
-            <div class="artwork-item">
-                <a href="src/product%20details%20pages/artwork3.html">
-                    <img src="src/artwork%20images/art1.jpg" alt="Artwork 3">
-                    <div class="artwork-details">
-                        <h3>Artwork 3</h3>
-                        <button>View Products</button>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="artwork-item">
-                <a href="src/product%20details%20pages/artwork4.html">
-                    <img src="src/artwork%20images/art1.jpg" alt="Artwork 4">
-                    <div class="artwork-details">
-                        <h3>Artwork 4</h3>
-                        <button>View Products</button>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="artwork-item">
-                <a href="src/product%20details%20pages/artwork5.html">
-                    <img src="src/artwork%20images/art1.jpg" alt="Artwork 5">
-                    <div class="artwork-details">
-                        <h3>Artwork 5</h3>
-                        <button>View Products</button>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="artwork-item">
-                <a href="src/product%20details%20pages/artwork2.html">
-                    <img src="src/artwork%20images/art1.jpg" alt="Artwork 6">
-                    <div class="artwork-details">
-                        <h3>Artwork 6</h3>
-                        <button>View Products</button>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Product 7 -->
-            <div class="artwork-item">
-                <a href="src/product%20details%20pages/artwork2.html">
-                    <img src="src/artwork%20images/art1.jpg" alt="Artwork 7">
-                    <div class="artwork-details">
-                        <h3>Artwork 7</h3>
-                        <button>View Products</button>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="artwork-item">
-                <a href="src/product%20details%20pages/artwork2.html">
-                    <img src="src/artwork%20images/art1.jpg" alt="Artwork 8">
-                    <div class="artwork-details">
-                        <h3>Artwork 8</h3>
-                        <button>View Products</button>
-                    </div>
-                </a>
-            </div>
-            <!-- Repeat similar blocks for additional products (later) -->
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
-
+<!--TODO: figure out why the footer does not appear-->
 <footer>
-    <div>
-        <!--        TODO: fill in these sections -->
-        <h3>Customer Support</h3>
-        <p>If you have any questions or inquiries, feel free to reach out to us.</p>
-        <!--        <p class="h3">   .     </p>-->
-        <!--        <p class="h3">    .    </p>-->
-        <!--        <p class="h3">   .     </p>-->
-    </div>
-    <div>
-        <!--        TODO: redirect users to new page for submitting requests (not sure what this section will be yet) -->
-        <h3>Submit a Request</h3>
-        <p>Need assistance or want to make a special request? Let us know!</p>
-        <!--        <p class="h3">   .     </p>-->
-        <!--        <p class="h3">    .    </p>-->
-        <!--        <p class="h3">   .     </p>-->
-    </div>
-    <div>
-        <h3>Subscribe</h3>
-        <p>Enter your information to subscribe and stay updated with our latest creations.</p>
-        <!-- Add your subscription form here -->
-        <!--         TODO: research how to implement subscriptions -->
-        <form action="subscribe.php" method="post">
-            <!--            <label for="subscribe-email">Email:</label>-->
-            <input type="email" id="subscribe-email" name="subscribe-email" required>
-            <!--            <button type="submit">Subscribe</button>-->
-        </form>
-    </div>
-
-    <hr class="separator"> <!-- Horizontal separator bar -->
-
     <div class="copyright">
         <p>&copy; 2023 Caiti Minahan Studio. All rights reserved.</p>
     </div>
 </footer>
 
+<!-- Uncomment the script for handling footer visibility based on scroll position -->
+<script>
+    const footer = document.querySelector('footer');
+
+    function handleScroll() {
+        // Calculate the scroll position and height
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = Math.max(
+            document.body.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.clientHeight,
+            document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight
+        );
+
+        // Check if the user has scrolled to the bottom
+        if (scrollPosition + windowHeight >= documentHeight - 1) {
+            // Make the footer visible
+            footer.style.display = 'flex';
+        } else {
+            // Hide the footer
+            footer.style.display = 'none';
+        }
+    }
+
+    // Add a scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    document.getElementById('viewStudioButton').addEventListener('click', function() {
+        // Use window.location.href to navigate to the shop.html page
+        window.location.href = 'index.html';
+    });
+
+</script>
+
+
+<!--<footer>-->
+<!--    <div class="copyright">-->
+<!--        <p>&copy; 2023 Caiti Minahan Studio. All rights reserved.</p>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;        const footer = document.querySelector('footer');&ndash;&gt;-->
+
+<!--&lt;!&ndash;        function handleScroll() {&ndash;&gt;-->
+<!--&lt;!&ndash;            // Calculate the scroll position and height&ndash;&gt;-->
+<!--&lt;!&ndash;            const scrollPosition = window.scrollY;&ndash;&gt;-->
+<!--&lt;!&ndash;            const windowHeight = window.innerHeight;&ndash;&gt;-->
+<!--&lt;!&ndash;            const documentHeight = Math.max(&ndash;&gt;-->
+<!--&lt;!&ndash;                document.body.scrollHeight,&ndash;&gt;-->
+<!--&lt;!&ndash;                document.body.offsetHeight,&ndash;&gt;-->
+<!--&lt;!&ndash;                document.documentElement.clientHeight,&ndash;&gt;-->
+<!--&lt;!&ndash;                document.documentElement.scrollHeight,&ndash;&gt;-->
+<!--&lt;!&ndash;                document.documentElement.offsetHeight&ndash;&gt;-->
+<!--&lt;!&ndash;            );&ndash;&gt;-->
+
+<!--&lt;!&ndash;            // Check if the user has scrolled to the bottom&ndash;&gt;-->
+<!--&lt;!&ndash;            if (scrollPosition + windowHeight >= documentHeight - 1) {&ndash;&gt;-->
+<!--&lt;!&ndash;                // Make the footer visible&ndash;&gt;-->
+<!--&lt;!&ndash;                footer.style.display = 'flex';&ndash;&gt;-->
+<!--&lt;!&ndash;            } else {&ndash;&gt;-->
+<!--&lt;!&ndash;                // Hide the footer&ndash;&gt;-->
+<!--&lt;!&ndash;                footer.style.display = 'none';&ndash;&gt;-->
+<!--&lt;!&ndash;            }&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        // Add a scroll event listener&ndash;&gt;-->
+<!--&lt;!&ndash;        window.addEventListener('scroll', handleScroll);&ndash;&gt;-->
+<!--&lt;!&ndash;    </script>&ndash;&gt;-->
+<!--</footer>-->
+
+<!--<<footer id="site-footer">-->
+<!--    <div class="copyright">-->
+<!--        <p>&copy; 2023 Caiti Minahan Studio. All rights reserved.</p>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<!--<script>-->
+<!--    const footer = document.getElementById('site-footer');-->
+
+<!--    function handleScroll() {-->
+<!--        // Calculate the scroll position and height-->
+<!--        const scrollPosition = window.scrollY;-->
+<!--        const windowHeight = window.innerHeight;-->
+<!--        const bodyHeight = document.body.offsetHeight;-->
+
+<!--        // Check if the user has scrolled to the bottom-->
+<!--        if (scrollPosition + windowHeight >= bodyHeight) {-->
+<!--            // Make the footer visible-->
+<!--            footer.style.display = 'block';-->
+<!--        } else {-->
+<!--            // Hide the footer-->
+<!--            footer.style.display = 'none';-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Add a scroll event listener-->
+<!--    window.addEventListener('scroll', handleScroll);-->
+<!--</script>-->
+
+<script>
+    const carousel = document.querySelector('.carousel');
+    let currentIndex = 0;
+    let isTransitioning = false;
+
+    function nextSlide() {
+        if (isTransitioning) return;
+
+        currentIndex = (currentIndex + 1) % carousel.children.length;
+
+        carousel.addEventListener('transitionend', handleTransitionEnd);
+
+        updateCarousel();
+    }
+
+    function handleTransitionEnd() {
+        carousel.removeEventListener('transitionend', handleTransitionEnd);
+
+        if (currentIndex === carousel.children.length - 1) {
+            carousel.style.transition = 'none';
+            currentIndex = 0;
+            updateCarousel();
+
+            setTimeout(() => {
+                carousel.style.transition = 'transform 0.5s ease-in-out';
+            }, 10);
+        }
+
+        isTransitioning = false;
+    }
+
+    function updateCarousel() {
+        const translateValue = -currentIndex * 100 + '%';
+        carousel.style.transform = 'translateX(' + translateValue + ')';
+        isTransitioning = true;
+    }
+
+    const firstImageClone = carousel.children[0].cloneNode(true);
+    carousel.appendChild(firstImageClone);
+
+    setInterval(nextSlide, 5000);
+</script>
 </body>
 
 </html>

@@ -142,7 +142,7 @@ app.post("/api/orders/:orderID/capture", async (req, res) => {
     }
 });
 
-// serve index.html
+// serve shop.html
 app.get("/", (req, res) => {
     res.sendFile(path.resolve("./client/checkout.html"));
 });
