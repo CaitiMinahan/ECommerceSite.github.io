@@ -33,13 +33,13 @@
         }
 
         header {
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.97);
             color: #edf5f1;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column; /* Change flex direction to column */
-            align-items: center; /* Center items along the cross-axis (vertically) */
+            /*align-items: center; !* Center items along the cross-axis (vertically) *!*/
             font-size: 1.2em;
             height: 50px;
         }
@@ -51,6 +51,7 @@
             font-weight: bold;
             /*margin-bottom: auto; !* Push it to the top *!*/
             margin-top: 20px;
+            display: flex;
         }
 
         nav {
@@ -72,7 +73,7 @@
         }
 
         nav ul li {
-            margin-inline: 100px; /* Adjust the spacing between the navigation links */
+            margin-inline: 90px; /* Adjust the spacing between the navigation links */
         }
 
         .logo-link {
@@ -148,7 +149,6 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%; /* Set container to full width */
-            margin: 20px auto;
         }
 
         section {
@@ -159,9 +159,9 @@
             position: relative;
             margin-left: 180px;
             margin-top: 50px;
+            margin-bottom: 24%;
         }
 
-        /*TODO: replace these images with actual pictures of your work*/
         .image-previews {
             display: flex;
             margin-bottom: 20px;
@@ -256,12 +256,13 @@
         }
 
         footer {
-            background-color: rgba(8, 24, 6, 0.99);
+            background-color: rgba(8, 24, 6, 0.90);
             color: #fff;
             text-align: center;
             padding: 10px;
             width: 100%;
-            margin-top: 220px;
+            /*margin-top: auto;*/
+            margin-bottom: 0;
         }
 
         .dropdown-content {
@@ -297,7 +298,7 @@
             }
 
             h1 {
-                font-size: 1.5em; /* Adjust the font size for larger screens */
+                font-size: 1.2em; /* Adjust the font size for larger screens */
                 margin-left: 10px;
             }
 
@@ -403,6 +404,7 @@
         #cartInfo {
             font-size: 1.5em; /* Adjust the font size for the icon */
             margin-left: 5px; /* Adjust the spacing between icon and text */
+            display: flex;
         }
 
         /* Personalization form */
@@ -470,15 +472,15 @@
     <section>
         <div class="image-previews">
             <div class="image-preview" onclick="showImage(1)">
-                <img src="../artwork%20images/art1.jpg" alt="Artwork 1">
+                <img src="../artwork%20images/sunflower_painting.jpg" alt="Artwork 1">
             </div>
             <div class="image-preview" onclick="showImage(2)">
-                <img src="../artwork%20images/art2.jpg" alt="Artwork 2">
+<!--                <img src="../artwork%20images/art2.jpg" alt="Artwork 2">-->
             </div>
             <!-- Add more image previews as needed -->
         </div>
 
-        <img id="mainImage" src="../artwork%20images/art1.jpg" alt="Artwork 1">
+        <img id="mainImage" src="../artwork%20images/sunflower_painting.jpg" alt="Artwork 1">
         <button class="arrow left" onclick="prevImage()">❮</button>
         <button class="arrow right" onclick="nextImage()">❯</button>
     </section>
@@ -514,7 +516,10 @@
                 <span></span>
             </div>
             <div id="itemDetailsDropdown" class="dropdown-content">
-                <p>Additional information about the artwork.</p>
+                <p>• 8x11 acrylic canvas painting.</p>
+                <p>• Valspar acrylic finish to prevent discoloration and scratches.</p>
+                <p>• Canvas panel lays flat on wall.</p>
+                <p>• Mounting not provided.</p>
             </div>
         </div>
 
@@ -524,7 +529,8 @@
                 <span></span>
             </div>
             <div id="shippingReturnsDropdown" class="dropdown-content">
-                <p>Info about shipping details here</p>
+                <p>• Shipping is done through USPS.</p>
+                <p>• Delivery time depends on customer location.</p>
             </div>
         </div>
 
@@ -534,7 +540,10 @@
                 <span></span>
             </div>
             <div id="meetTheArtistDropdown" class="dropdown-content">
-                <p>Info the artist with contact info in dropdown</p>
+                <p>Curious to see how I made this? Checkout my social media for the full video!</p>
+                <p>• YouTube: @CaitiMinahanStudio</p>
+                <p>• Instagram: @CaitiMinahanStudio</p>
+                <p>• TikTok: @CaitiMinahanStudio</p>
             </div>
         </div>
 
@@ -620,8 +629,8 @@
 
     var currentIndex = 0;
     var imageSources = [
-        '../artwork%20images/art1.jpg',
-        '../artwork%20images/art2.jpg',
+        '../artwork%20images/sunflower_painting.jpg',
+        // '../artwork%20images/art2.jpg',
         // Add more image sources as needed
     ];
 
