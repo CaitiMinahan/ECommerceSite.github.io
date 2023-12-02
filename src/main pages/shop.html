@@ -9,7 +9,7 @@
     <title>Your Art Gallery</title>
     <style>
         section#gallery h2 {
-            color: rgba(0, 0, 0, 0.96); /* Change this to the desired color */
+            color: rgba(5, 33, 13, 0.95); /* Change this to the desired color */
             font-size: 30px;
             font-family: 'Times New Roman', sans-serif;
             margin-top: 10px;
@@ -25,11 +25,11 @@
             margin-left: 1%;
             justify-content: center;
             float: right;
-            margin-bottom: 100%;
+            margin-bottom: 0;
         }
 
         section#home {
-            background-color: rgb(77, 58, 47, 0.65); /* Add a background color behind the home section */
+            background-color: rgba(77, 73, 47, 0.5); /* Add a background color behind the home section */
             height: 100%; /* Adjust the height to your preference */
             display: flex;
             flex-direction: column;
@@ -38,7 +38,7 @@
         }
 
         h4 {
-            color: rgba(0, 0, 0, 0.96); /* Change this to the desired color */
+            color: rgba(3, 45, 17, 1); /* Change this to the desired color */
             font-size: 30px;
             font-family: 'Times New Roman', sans-serif;
             margin: 0;
@@ -49,7 +49,7 @@
         }
 
         h5 {
-            color: rgba(0, 0, 0, 0.96); /* Change this to the desired color */
+            color: rgba(3, 45, 17, 1); /* Change this to the desired color */
             font-size: 30px;
             font-family: 'Times New Roman', sans-serif;
             justify-content: center;
@@ -60,8 +60,7 @@
             width: 15%; /* Adjust the width of the about me section */
             float: left;
             font-size: 20px;
-            background-color: rgba(135, 206, 155, 0.2);
-            color: #fff;
+            background-color: rgba(242, 250, 244, 0.5);
             height: auto;
             display: flex;
             flex-direction: column;
@@ -72,10 +71,12 @@
         .about-me-paragraph {
             width: 90%; /* Adjust the width to make it wider within the fixed height */
             font-size: 20px;
-            color: rgba(0, 0, 0, 0.96);
+            color: rgb(5, 0, 0);
+            /*background-color: rgba(81, 94, 85, 0.49);*/
             height: 100%;
             overflow-y: auto; /* Add vertical scroll if content exceeds the fixed height */
             position: relative;
+            margin-left: 5%;
         }
 
         #social-media p {
@@ -105,7 +106,7 @@
             content: '';
             position: absolute;
             top: 50%;
-            width: 650px; /* Adjust the width of the design elements */
+            width: 100%; /* Adjust the width of the design elements */
             height: 2px; /* Adjust the height of the design elements */
             background-color: #f8f6f4; /* Adjust the color of the design elements */
         }
@@ -124,7 +125,7 @@
         section#home p {
             color: #f8f6f4; /* Change this to the desired color */
             margin: 0; /* Remove default margin */
-            font-size: 25px;
+            font-size: 20px;
         }
 
         body {
@@ -143,13 +144,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('../background images/background_1.jpg') center/cover;
-            opacity: 0.7; /* Adjust the opacity as needed */
+            background: url('../background images/background_1.jpg') center center no-repeat;
+            background-size: cover;
+            opacity: 0.75; /* Adjust the opacity as needed */
             z-index: -1; /* Send it to the back */
         }
 
         header {
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.95);
             color: #edf5f1;
             padding: 10px 10px; /* Added padding to the header */
             display: flex;
@@ -284,6 +286,10 @@
                 font-size: 1em;
             }
 
+            .background {
+                position: fixed;
+            }
+
         }
 
         section {
@@ -301,6 +307,7 @@
             justify-content: space-evenly;
             flex-wrap: wrap;
             width: auto;
+            margin-top: 2%;
         }
 
         .artwork-item {
@@ -379,9 +386,8 @@
             align-items: center;
         }
 
-        /*TODO: figure out why footer is so far down*/
         footer {
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.95);
             color: #fff;
             text-align: center;
             width: 100%;
@@ -389,7 +395,7 @@
             flex-wrap: wrap; /* Allow items to wrap to the next line */
             justify-content: space-around;
             align-items: center;
-            position: relative;
+            position: inherit;
         }
 
         footer div {
@@ -415,10 +421,10 @@
         }
 
         .separator {
-            width: 100%;
-            height: 1px; /* Reduce the height of the separator */
+            width: 90%;
+            height: 0.5px; /* Reduce the height of the separator */
             /*margin-top: 1px; !* Adjust the margin as needed *!*/
-            margin: 0;
+            margin: 0 auto;
             background-color: #fff;
         }
 
@@ -467,29 +473,26 @@
     </div>
 </section>
 
-<!--TODO: maybe this section instead should be a "shop by" section-->
-<!--TODO: also, fill in this about me section -->
-<!--with the below sections being a bio and socials section -->
 <section id="about-me">
     <div class="container">
         <h5>About Me</h5>
-        <p class="about-me-paragraph">Write your about me content here.</p>
-        <p class="about-me-paragraph">Write your about me content here.</p>
-        <p class="about-me-paragraph">Write your about me content here.</p>
-        <p class="about-me-paragraph">Write your about me content here.</p>
-        <p class="about-me-paragraph">...</p>
-        <p class="about-me-paragraph">...</p>
+        <p class="about-me-paragraph">As an independent business owner and passionate artist, I take pride in creating
+            unique and one-of-a-kind pieces that are available for sale in my shop. My journey as an artist began at a
+            young age, fueled by a deep-seated passion for creative expression.</p>
+        <p class="about-me-paragraph">My artistic endeavors span a variety of mediums, showcasing a diverse range of
+            skills. Specializing in acrylic paintings, custom-painted denim, sewing tote bags, candle making, and
+            knitting, I bring a blend of creativity and craftsmanship to each piece. Every creation is a reflection of
+            my lifelong dedication to the art form.</p>
+        <p class="about-me-paragraph">Enjoy browsing through my site and find something for yourself!</p>
         <!-- Add social media details below -->
         <div id="social-media-container">
-            <h4>Follow us online</h4>
-            <p class="about-me-paragraph">Connect with me on social media:</p>
-            <p class="about-me-paragraph">Twitter: @yourTwitter</p>
-            <p class="about-me-paragraph">Instagram: @yourInstagram</p>
-            <p class="about-me-paragraph">...</p>
-            <p class="about-me-paragraph">...</p>
-            <p class="about-me-paragraph">...</p>
-            <p class="about-me-paragraph">...</p>
-            <p class="about-me-paragraph">...</p>
+            <h4>Connect Online</h4>
+            <p class="about-me-paragraph">Follow me on my social media:</p>
+            <p class="about-me-paragraph">YouTube: @CaitiMinahanStudio</p>
+            <p class="about-me-paragraph">Instagram: @CaitiMinahanStudio</p>
+            <p class="about-me-paragraph">TikTok: @CaitiMinahanStudio</p>
+            <p class="about-me-paragraph">Pinterest: @CaitiMinahanStudio</p>
+            <p class="about-me-paragraph">Check for regular posts and site updates!</p>
             <!-- End social media details -->
         </div>
     </div>
@@ -497,16 +500,15 @@
 
 <section id="gallery">
     <div class="container">
-        <h2><a href="../header%20nav%20links/gallery.html" class="section-link">View Gallery</a></h2>
+<!--        <h2><a href="../header%20nav%20links/gallery.html" class="section-link">View Gallery</a></h2>-->
         <div class="artwork">
             <!-- Add your artwork images and details here -->
-            <!-- TODO: adjust image sizes to all be the same in paint -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork1.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 1">
+                    <img src="../artwork%20images/sunflower_painting_preview.jpg" alt="Artwork 1">
                     <div class="artwork-details">
-                        <h3>Artwork 1</h3>
-                        <!--                        <p>Price: $100</p>-->
+                        <h3>Sunflower Painting</h3>
+<!--                        TODO: eventually, the artwork preview will be categories to shop by (view products)-->
                         <button>View Products</button>
                     </div>
                 </a>
@@ -514,9 +516,9 @@
             <!-- Product 2 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork2.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 2">
+                    <img src="../artwork%20images/face_jeans_preview.jpg" alt="Artwork 2">
                     <div class="artwork-details">
-                        <h3>Artwork 2</h3>
+                        <h3>Abstract Faces Jeans</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -525,9 +527,9 @@
             <!-- Product 3 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork3.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 3">
+                    <img src="../artwork%20images/sunset_painting_preview.jpg" alt="Artwork 3">
                     <div class="artwork-details">
-                        <h3>Artwork 3</h3>
+                        <h3>Sunset Painting</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -536,9 +538,9 @@
             <!-- Product 4 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork4.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 4">
+                    <img src="../artwork%20images/pumpkin_painting_preview.jpg" alt="Artwork 4">
                     <div class="artwork-details">
-                        <h3>Artwork 4</h3>
+                        <h3>Pumpkin Painting</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -547,9 +549,9 @@
             <!-- Product 5 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork5.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 5">
+                    <img src="../artwork%20images/daisy_jeans_front_preview.jpg" alt="Artwork 5">
                     <div class="artwork-details">
-                        <h3>Artwork 5</h3>
+                        <h3>Daisy Jeans</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -558,9 +560,9 @@
             <!-- Product 6 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork2.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 6">
+                    <img src="../artwork%20images/moon_painting_preview.jpg" alt="Artwork 6">
                     <div class="artwork-details">
-                        <h3>Artwork 6</h3>
+                        <h3>Moon Painting</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -569,9 +571,9 @@
             <!-- Product 7 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork2.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 7">
+                    <img src="../artwork%20images/mushroom_jeans_front_preview.jpg" alt="Artwork 7">
                     <div class="artwork-details">
-                        <h3>Artwork 7</h3>
+                        <h3>Mushroom Jeans</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -580,9 +582,9 @@
             <!-- Product 8 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork2.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 8">
+                    <img src="../artwork%20images/buuterfly_jeans_front_preview.jpg" alt="Artwork 8">
                     <div class="artwork-details">
-                        <h3>Artwork 8</h3>
+                        <h3>Butterfly Jeans</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -592,23 +594,16 @@
     </div>
 </section>
 
-
 <footer>
     <div>
         <!--        TODO: fill in these sections -->
         <h3>Customer Support</h3>
         <p>If you have any questions or inquiries, feel free to reach out to us.</p>
-        <!--        <p class="h3">   .     </p>-->
-        <!--        <p class="h3">    .    </p>-->
-        <!--        <p class="h3">   .     </p>-->
     </div>
     <div>
         <!--        TODO: redirect users to new page for submitting requests (not sure what this section will be yet) -->
         <h3>Submit a Request</h3>
         <p>Need assistance or want to make a special request? Let us know!</p>
-        <!--        <p class="h3">   .     </p>-->
-        <!--        <p class="h3">    .    </p>-->
-        <!--        <p class="h3">   .     </p>-->
     </div>
     <div>
         <h3>Subscribe</h3>
@@ -616,9 +611,7 @@
         <!-- Add your subscription form here -->
         <!--         TODO: research how to implement subscriptions -->
         <form action="subscribe.php" method="post">
-            <!--            <label for="subscribe-email">Email:</label>-->
             <input type="email" id="subscribe-email" name="subscribe-email" required>
-            <!--            <button type="submit">Subscribe</button>-->
         </form>
     </div>
 
