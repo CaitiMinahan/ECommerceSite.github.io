@@ -57,7 +57,7 @@
             }
 
             .carousel-container {
-                width: 90%; /* Adjust the width for smaller screens */
+                width: 100%; /* Adjust the width for smaller screens */
                 margin-left: auto; /* Center the carousel on smaller screens */
                 margin-right: auto;
             }
@@ -96,7 +96,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('src/background images/background4.jpg') center/cover;
+            background: url('src/background images/background_2.jpg') center/cover;
             opacity: 0.25;
             z-index: -1;
         }
@@ -113,7 +113,7 @@
         }
 
         header {
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.69);
             color: #edf5f1;
             padding: 10px 10px; /* Added padding to the header */
             display: flex;
@@ -170,14 +170,18 @@
         }
 
         .carousel-container {
-            width: 50%;
+            width: 70%;
             overflow: hidden;
             position: relative;
+            margin: 0 auto;
+            margin-top: 100px;
+            margin-bottom: 30px;
         }
 
         .carousel {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.7s ease-in-out;
+            width: 500%; /* Adjust the width to accommodate all carousel items */
         }
 
         .carousel-item {
@@ -272,7 +276,7 @@
             font-family: 'Times New Roman', sans-serif;
             text-decoration: none;
             color: #fff;
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.71);
             border: 2px solid #fff;
             border-radius: 5px;
             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -280,7 +284,7 @@
         }
 
         .view-studio-button button:hover {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);
             color: rgba(8, 51, 20, 0.65);
         }
 
@@ -312,14 +316,14 @@
         }
 
         footer {
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.65);
             color: #fff;
             text-align: center;
             /*padding: 10px 0;*/
             position: fixed;
             width: 100%;
             bottom: 0;
-            display: none;
+            display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
@@ -383,11 +387,11 @@
 <div class="content-container">
     <div class="carousel-container">
         <div class="carousel">
-            <div class="carousel-item"><img src="src/artwork%20images/art1.jpg" alt="Artwork 1"></div>
-            <div class="carousel-item"><img src="src/artwork%20images/art2.jpg" alt="Artwork 2"></div>
-            <div class="carousel-item"><img src="src/artwork%20images/art3.jpg" alt="Artwork 3"></div>
-            <div class="carousel-item"><img src="src/artwork%20images/art4.jpg" alt="Artwork 4"></div>
-            <div class="carousel-item"><img src="src/artwork%20images/art5.jpg" alt="Artwork 5"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/sunflower_painting.jpg" alt="Artwork 1"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/face_jeans.jpg" alt="Artwork 2"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/pumpkin_painting.jpg" alt="Artwork 3"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/daisy_jeans_front.jpg" alt="Artwork 4"></div>
+            <div class="carousel-item"><img src="src/artwork%20images/sunset_painting.jpg" alt="Artwork 5"></div>
         </div>
     </div>
 
@@ -448,70 +452,6 @@
     });
 
 </script>
-
-
-<!--<footer>-->
-<!--    <div class="copyright">-->
-<!--        <p>&copy; 2023 Caiti Minahan Studio. All rights reserved.</p>-->
-<!--    </div>-->
-<!--&lt;!&ndash;    <script>&ndash;&gt;-->
-<!--&lt;!&ndash;        const footer = document.querySelector('footer');&ndash;&gt;-->
-
-<!--&lt;!&ndash;        function handleScroll() {&ndash;&gt;-->
-<!--&lt;!&ndash;            // Calculate the scroll position and height&ndash;&gt;-->
-<!--&lt;!&ndash;            const scrollPosition = window.scrollY;&ndash;&gt;-->
-<!--&lt;!&ndash;            const windowHeight = window.innerHeight;&ndash;&gt;-->
-<!--&lt;!&ndash;            const documentHeight = Math.max(&ndash;&gt;-->
-<!--&lt;!&ndash;                document.body.scrollHeight,&ndash;&gt;-->
-<!--&lt;!&ndash;                document.body.offsetHeight,&ndash;&gt;-->
-<!--&lt;!&ndash;                document.documentElement.clientHeight,&ndash;&gt;-->
-<!--&lt;!&ndash;                document.documentElement.scrollHeight,&ndash;&gt;-->
-<!--&lt;!&ndash;                document.documentElement.offsetHeight&ndash;&gt;-->
-<!--&lt;!&ndash;            );&ndash;&gt;-->
-
-<!--&lt;!&ndash;            // Check if the user has scrolled to the bottom&ndash;&gt;-->
-<!--&lt;!&ndash;            if (scrollPosition + windowHeight >= documentHeight - 1) {&ndash;&gt;-->
-<!--&lt;!&ndash;                // Make the footer visible&ndash;&gt;-->
-<!--&lt;!&ndash;                footer.style.display = 'flex';&ndash;&gt;-->
-<!--&lt;!&ndash;            } else {&ndash;&gt;-->
-<!--&lt;!&ndash;                // Hide the footer&ndash;&gt;-->
-<!--&lt;!&ndash;                footer.style.display = 'none';&ndash;&gt;-->
-<!--&lt;!&ndash;            }&ndash;&gt;-->
-<!--&lt;!&ndash;        }&ndash;&gt;-->
-
-<!--&lt;!&ndash;        // Add a scroll event listener&ndash;&gt;-->
-<!--&lt;!&ndash;        window.addEventListener('scroll', handleScroll);&ndash;&gt;-->
-<!--&lt;!&ndash;    </script>&ndash;&gt;-->
-<!--</footer>-->
-
-<!--<<footer id="site-footer">-->
-<!--    <div class="copyright">-->
-<!--        <p>&copy; 2023 Caiti Minahan Studio. All rights reserved.</p>-->
-<!--    </div>-->
-<!--</footer>-->
-
-<!--<script>-->
-<!--    const footer = document.getElementById('site-footer');-->
-
-<!--    function handleScroll() {-->
-<!--        // Calculate the scroll position and height-->
-<!--        const scrollPosition = window.scrollY;-->
-<!--        const windowHeight = window.innerHeight;-->
-<!--        const bodyHeight = document.body.offsetHeight;-->
-
-<!--        // Check if the user has scrolled to the bottom-->
-<!--        if (scrollPosition + windowHeight >= bodyHeight) {-->
-<!--            // Make the footer visible-->
-<!--            footer.style.display = 'block';-->
-<!--        } else {-->
-<!--            // Hide the footer-->
-<!--            footer.style.display = 'none';-->
-<!--        }-->
-<!--    }-->
-
-<!--    // Add a scroll event listener-->
-<!--    window.addEventListener('scroll', handleScroll);-->
-<!--</script>-->
 
 <script>
     const carousel = document.querySelector('.carousel');
