@@ -449,48 +449,112 @@
 
 </script>
 
-    <script>
-        const carousel = document.querySelector('.carousel');
-        let currentIndex = 0;
-        let isTransitioning = false;
 
-        function nextSlide() {
-            if (isTransitioning) return;
+<!--<footer>-->
+<!--    <div class="copyright">-->
+<!--        <p>&copy; 2023 Caiti Minahan Studio. All rights reserved.</p>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;        const footer = document.querySelector('footer');&ndash;&gt;-->
 
-            currentIndex = (currentIndex + 1) % carousel.children.length;
+<!--&lt;!&ndash;        function handleScroll() {&ndash;&gt;-->
+<!--&lt;!&ndash;            // Calculate the scroll position and height&ndash;&gt;-->
+<!--&lt;!&ndash;            const scrollPosition = window.scrollY;&ndash;&gt;-->
+<!--&lt;!&ndash;            const windowHeight = window.innerHeight;&ndash;&gt;-->
+<!--&lt;!&ndash;            const documentHeight = Math.max(&ndash;&gt;-->
+<!--&lt;!&ndash;                document.body.scrollHeight,&ndash;&gt;-->
+<!--&lt;!&ndash;                document.body.offsetHeight,&ndash;&gt;-->
+<!--&lt;!&ndash;                document.documentElement.clientHeight,&ndash;&gt;-->
+<!--&lt;!&ndash;                document.documentElement.scrollHeight,&ndash;&gt;-->
+<!--&lt;!&ndash;                document.documentElement.offsetHeight&ndash;&gt;-->
+<!--&lt;!&ndash;            );&ndash;&gt;-->
 
-            carousel.addEventListener('transitionend', handleTransitionEnd);
+<!--&lt;!&ndash;            // Check if the user has scrolled to the bottom&ndash;&gt;-->
+<!--&lt;!&ndash;            if (scrollPosition + windowHeight >= documentHeight - 1) {&ndash;&gt;-->
+<!--&lt;!&ndash;                // Make the footer visible&ndash;&gt;-->
+<!--&lt;!&ndash;                footer.style.display = 'flex';&ndash;&gt;-->
+<!--&lt;!&ndash;            } else {&ndash;&gt;-->
+<!--&lt;!&ndash;                // Hide the footer&ndash;&gt;-->
+<!--&lt;!&ndash;                footer.style.display = 'none';&ndash;&gt;-->
+<!--&lt;!&ndash;            }&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
 
+<!--&lt;!&ndash;        // Add a scroll event listener&ndash;&gt;-->
+<!--&lt;!&ndash;        window.addEventListener('scroll', handleScroll);&ndash;&gt;-->
+<!--&lt;!&ndash;    </script>&ndash;&gt;-->
+<!--</footer>-->
+
+<!--<<footer id="site-footer">-->
+<!--    <div class="copyright">-->
+<!--        <p>&copy; 2023 Caiti Minahan Studio. All rights reserved.</p>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<!--<script>-->
+<!--    const footer = document.getElementById('site-footer');-->
+
+<!--    function handleScroll() {-->
+<!--        // Calculate the scroll position and height-->
+<!--        const scrollPosition = window.scrollY;-->
+<!--        const windowHeight = window.innerHeight;-->
+<!--        const bodyHeight = document.body.offsetHeight;-->
+
+<!--        // Check if the user has scrolled to the bottom-->
+<!--        if (scrollPosition + windowHeight >= bodyHeight) {-->
+<!--            // Make the footer visible-->
+<!--            footer.style.display = 'block';-->
+<!--        } else {-->
+<!--            // Hide the footer-->
+<!--            footer.style.display = 'none';-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Add a scroll event listener-->
+<!--    window.addEventListener('scroll', handleScroll);-->
+<!--</script>-->
+
+<script>
+    const carousel = document.querySelector('.carousel');
+    let currentIndex = 0;
+    let isTransitioning = false;
+
+    function nextSlide() {
+        if (isTransitioning) return;
+
+        currentIndex = (currentIndex + 1) % carousel.children.length;
+
+        carousel.addEventListener('transitionend', handleTransitionEnd);
+
+        updateCarousel();
+    }
+
+    function handleTransitionEnd() {
+        carousel.removeEventListener('transitionend', handleTransitionEnd);
+
+        if (currentIndex === carousel.children.length - 1) {
+            carousel.style.transition = 'none';
+            currentIndex = 0;
             updateCarousel();
+
+            setTimeout(() => {
+                carousel.style.transition = 'transform 0.5s ease-in-out';
+            }, 10);
         }
 
-        function handleTransitionEnd() {
-            carousel.removeEventListener('transitionend', handleTransitionEnd);
+        isTransitioning = false;
+    }
 
-            if (currentIndex === carousel.children.length - 1) {
-                carousel.style.transition = 'none';
-                currentIndex = 0;
-                updateCarousel();
+    function updateCarousel() {
+        const translateValue = -currentIndex * 100 + '%';
+        carousel.style.transform = 'translateX(' + translateValue + ')';
+        isTransitioning = true;
+    }
 
-                setTimeout(() => {
-                    carousel.style.transition = 'transform 0.5s ease-in-out';
-                }, 10);
-            }
+    const firstImageClone = carousel.children[0].cloneNode(true);
+    carousel.appendChild(firstImageClone);
 
-            isTransitioning = false;
-        }
-
-        function updateCarousel() {
-            const translateValue = -currentIndex * 100 + '%';
-            carousel.style.transform = 'translateX(' + translateValue + ')';
-            isTransitioning = true;
-        }
-
-        const firstImageClone = carousel.children[0].cloneNode(true);
-        carousel.appendChild(firstImageClone);
-
-        setInterval(nextSlide, 5000);
-    </script>
+    setInterval(nextSlide, 5000);
+</script>
 </body>
 
 </html>
