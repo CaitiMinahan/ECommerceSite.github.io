@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- include library for magnifying glass for search -->
     <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!-- Add the PayPal SDK script -->
-    <script src="https://www.paypal.com/sdk/js?client-id=ATVrgFCTvwpM3jguNL0x-NWPgmrZexmg4dr3Cup2f41eanMjuEQdvI6hfMu4sEMlTyE06Bnp76e-Chag"></script>
-
     <meta charset="UTF-8">
-    <title>Checkout</title>
-    <!-- Add any additional styles or scripts if needed -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Caiti Minahan Studio</title>
     <style>
 
         body {
-            font-family: 'Times New Roman', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-size: 20px;
-            position: relative;
-            overflow-x: hidden; /* Hide horizontal scrollbar */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0; /* Remove default margin */
         }
 
         .background {
@@ -28,13 +22,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #edf5f1;
-            opacity: 0.2; /* Adjust the opacity as needed */
+            background: url('../background images/background_2.jpg') center/cover;
+            opacity: 0.7; /* Adjust the opacity as needed */
             z-index: -1; /* Send it to the back */
         }
 
         header {
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.95);
             color: #edf5f1;
             display: flex;
             justify-content: center;
@@ -53,32 +47,10 @@
             margin-top: 20px;
         }
 
-        h2 {
-            margin-left: 20px;
-        }
-
-        /*.container {*/
-        /*    display: flex;*/
-        /*    justify-content: space-between;*/
-        /*    !*align-items: flex-start;*!*/
-        /*    width: 100%; !* Set container to full width *!*/
-        /*    margin: 20px auto;*/
-        /*    flex-direction: column;*/
-        /*    align-items: flex-start;*/
-        /*}*/
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center everything horizontally */
-            text-align: center; /* Center text content */
-            margin: 20px auto;
-        }
-
         nav {
             margin-top: 0;
             display: flex;
-            justify-content: space-evenly; /* Center items along the main axis (horizontally) */
+            justify-content: center; /* Center items along the main axis (horizontally) */
             align-items: center;
             flex-grow: 1; /* Allow the nav to grow and take available space */
         }
@@ -94,7 +66,7 @@
         }
 
         nav ul li {
-            margin-inline: 100px; /* Adjust the spacing between the navigation links */
+            margin-inline: 92px; /* Adjust the spacing between the navigation links */
         }
 
         .logo-link {
@@ -130,12 +102,9 @@
             align-items: center;
         }
 
-        /*TODO: research how to implement search*/
         .search-bar {
             display: flex;
             align-items: center;
-            margin-right: 20px;
-            margin-left: 20px;
         }
 
         .search-bar input {
@@ -153,57 +122,8 @@
         }
 
         .search-icon:hover {
-            color: rgb(210, 153, 8); /* Adjust the color for the dimming effect */
+            color: rgba(135, 206, 155, 0.65); /* Adjust the color for the dimming effect */
         }
-
-        #cartSection {
-            text-align: center; /* Center the content within the section */
-            margin-top: 20px; /* Adjust the top margin as needed */
-        }
-
-        /* Style for the right column */
-        #right-column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%; /* Adjust the width as needed */
-        }
-
-        /*TODO: see if we can have this float on the side and travel as users scroll */
-        #paypal-button-container {
-            margin-top: 20px; /* Adjust the top margin as needed */
-            /*margin-right: 20px;*/
-        }
-
-        /*#checkoutButtons {*/
-        /*    display: flex;*/
-        /*    flex-direction: column;*/
-        /*    margin-right: 6%;*/
-        /*}*/
-
-        #checkoutButtons {
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px; /* Adjust the top margin as needed */
-        }
-
-        button {
-            background-color: rgba(8, 51, 20, 0.65);
-            color: rgb(237, 248, 240);
-            padding: 8px 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 15px;
-            transition: background-color 0.3s ease-in-out;
-            margin-bottom: 15px;
-            width: 200px;
-        }
-
-        button:hover {
-            background-color: rgba(14, 75, 31, 0.35);
-            color: rgba(14, 75, 31, 0.65);
-        }
-
 
         .login-signin a {
             color: #6f8f7e;
@@ -214,23 +134,12 @@
 
         }
 
-        .item-preview {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        .item-preview img {
-            max-width: 100px;
-            max-height: 100px;
-            margin-right: 10px;
-        }
-
         /* Add this to your existing styles */
         #cartLink {
             color: #e7dee4; /* Adjust the color to match your design */
             text-decoration: none;
             transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+            margin-right: 20px;
         }
 
         #cartLink:hover {
@@ -242,38 +151,141 @@
             margin-left: 5px; /* Adjust the spacing between icon and text */
         }
 
-        /* Add this to your existing styles */
-        #cartItemsList {
-            list-style-type: none; /* Remove the bullet points */
-            padding: 0; /* Remove default padding */
+        section#gallery h2 {
+            color: rgb(242, 250, 244); /* Change this to the desired color */
+            font-size: 27px;
+            font-family: 'Times New Roman', sans-serif;
+            /*margin-top: 2%;*/
+            margin-top: 0;
+            text-align: center;
+            background-color: rgba(77, 73, 47, 0.5); /* Add a background color behind the home section */
+
         }
 
-        #cartItemsList li {
-            margin-bottom: 10px; /* Adjust spacing between cart items */
+        section#gallery {
+            height: 100%; /* Adjust the height to your preference */
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            /*margin-right: 2%;*/
+            /*margin-left: 1%;*/
+            justify-content: center;
+            float: right;
+            margin-bottom: 5%;
+            align-content: center;
+        }
+
+        .artwork {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            width: auto;
+            margin-top: 5%;
+        }
+
+        .artwork-item {
+            position: relative;
+            /*margin-bottom: 10px;*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 5%;
+        }
+
+        .artwork-details {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            background: rgba(80, 101, 87, 0.75);
+            color: #fff;
+            opacity: 0;
+            z-index: 1; /* Ensure it appears in front of the image */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .artwork-item:hover .artwork-details {
+            opacity: 1; /* Show the details on hover */
+        }
+
+        .artwork-item img {
+            width: 100%;
+            height: 350px; /* Adjust the height as needed */
+            object-fit: cover;
+        }
+
+        .artwork-details h3 {
+            margin: 0 auto;
+        }
+
+        .artwork-details p {
+            margin: 0 auto;
+        }
+
+        /*TODO: fill out the new product pages*/
+        .artwork-details button {
+            color: rgba(0, 0, 0, 0.96);
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .artwork-details button:hover {
+            background-color: rgba(8, 51, 20, 0.65); /* Adjust the color for the dimming effect */
+            color: rgb(237, 248, 240);
+
+        }
+
+        /* Add this style for the hover effect */
+        .section-link:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+            text-decoration: none; /* Add an underline on hover */
+        }
+
+        /* Add this style to remove the default link styles */
+        .section-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block; /* Make it a block element */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         footer {
-            background-color: #333;
+            background-color: rgba(8, 24, 6, 0.9);
             color: #fff;
             text-align: center;
             padding: 10px;
             width: 100%;
-            margin-top: 100vh;
+            margin-bottom: 0;
+            margin-top: auto;
         }
 
         /* Media Query for Larger Screens */
         @media screen and (min-width: 1600px) {
             header {
-                font-size: 0.75em; /* Adjust the base font size for larger screens */
+                font-size: 0.8em; /* Adjust the base font size for larger screens */
             }
 
             h1 {
                 font-size: 1.2em; /* Adjust the font size for larger screens */
-                margin: 0;
+                margin-left: 10px;
             }
 
             nav ul li a {
-                font-size: 1em; /* Adjust the font size for larger screens */
+                font-size: 1.5em; /* Adjust the font size for larger screens */
             }
 
             nav {
@@ -281,10 +293,7 @@
             }
 
             nav ul {
-                margin: 0;
-                padding: 0;
-                align-items: center;
-                width: 100%;
+                font-size: 1.1em;
             }
 
             .search-icon {
@@ -298,12 +307,15 @@
             .search-bar input{
                 font-size: 1em;
             }
-        }
 
+            body {
+                width: 100%;
+            }
+        }
     </style>
 </head>
-<body>
 
+<body>
 <header>
 
     <!-- Your header content -->
@@ -322,11 +334,16 @@
                     <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>
                     <!--                    TODO: research how to implement sign up functionality for static sites-->
                     <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
+                    <!--                    <li><a href="../product%20details%20pages/checkout.html" id="cartLink">-->
+                    <!--                        <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>-->
+                    <!--                    </a></li>-->
                 </div>
 
-                <a href="checkout.html" id="cartLink">
-                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>
-                </a>
+                <!--                <a href="../product%20details%20pages/checkout.html" id="cartLink">-->
+                <!--                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>-->
+                <!--                </a>-->
+
+                <li><a href="../product%20details%20pages/checkout.html" id="cartLink"><i class="fas fa-shopping-cart"></i></a></li>
 
                 <div class="search-bar">
                     <!-- Search bar HTML -->
@@ -334,56 +351,107 @@
                     <!-- Magnifying glass icon from Font Awesome -->
                     <span class="search-icon"><i class="fas fa-search"></i></span>
                 </div>
-
             </ul>
         </nav>
-
     </div>
 
 </header>
 
+<section id="gallery">
+    <div class="container">
+        <h2><a href="../header%20nav%20links/gallery.html" class="section-link">View Gallery</a></h2>
+        <div class="artwork">
+            <!-- Add your artwork images and details here -->
+            <div class="artwork-item">
+                <a href="../product%20details%20pages/artwork1.html">
+                    <img src="../artwork%20images/sunflower_painting_preview.jpg" alt="Artwork 1">
+                    <div class="artwork-details">
+                        <h3>Sunflower Painting</h3>
+                        <!--                        <p>Price: $100</p>-->
+                        <button>View Products</button>
+                    </div>
+                </a>
+            </div>
+            <!-- Product 2 -->
+<!--            <div class="artwork-item">-->
+<!--                <a href="../product%20details%20pages/artwork2.html">-->
+<!--                    <img src="../artwork%20images/face_jeans_preview.jpg" alt="Artwork 2">-->
+<!--                    <div class="artwork-details">-->
+<!--                        <h3>Abstract Faces Jeans</h3>-->
+<!--                        <button>View Products</button>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
 
-<div class="container">
-    <section>
+            <!-- Product 3 -->
+            <div class="artwork-item">
+                <a href="../product%20details%20pages/artwork3.html">
+                    <img src="../artwork%20images/sunset_painting_preview.jpg" alt="Artwork 3">
+                    <div class="artwork-details">
+                        <h3>Sunset Painting</h3>
+                        <button>View Products</button>
+                    </div>
+                </a>
+            </div>
 
-        <section id="cartSection">
+            <!-- Product 4 -->
+            <div class="artwork-item">
+                <a href="../product%20details%20pages/artwork4.html">
+                    <img src="../artwork%20images/pumpkin_painting_preview.jpg" alt="Artwork 4">
+                    <div class="artwork-details">
+                        <h3>Pumpkin Painting</h3>
+                        <button>View Products</button>
+                    </div>
+                </a>
+            </div>
 
-        <h2>Shopping Cart</h2>
+            <!-- Product 5 -->
+<!--            <div class="artwork-item">-->
+<!--                <a href="../product%20details%20pages/artwork5.html">-->
+<!--                    <img src="../artwork%20images/daisy_jeans_front_preview.jpg" alt="Artwork 5">-->
+<!--                    <div class="artwork-details">-->
+<!--                        <h3>Daisy Jeans</h3>-->
+<!--                        <button>View Products</button>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
 
-            <ul id="cartItemsList">
+            <!-- Product 6 -->
+            <div class="artwork-item">
+                <a href="../product%20details%20pages/artwork6.html">
+                    <img src="../artwork%20images/moon_painting_preview.jpg" alt="Artwork 6">
+                    <div class="artwork-details">
+                        <h3>Moon Painting</h3>
+                        <button>View Products</button>
+                    </div>
+                </a>
+            </div>
 
-            <!--TODO: Cart items will be dynamically added here -->
-            </ul>
-        </section>
-    </section>
-    <!-- Add other sections or content as needed -->
+            <!-- Product 7 -->
+<!--            <div class="artwork-item">-->
+<!--                <a href="../product%20details%20pages/artwork7.html">-->
+<!--                    <img src="../artwork%20images/mushroom_jeans_front_preview.jpg" alt="Artwork 7">-->
+<!--                    <div class="artwork-details">-->
+<!--                        <h3>Mushroom Jeans</h3>-->
+<!--                        <button>View Products</button>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
 
-    <!-- Right column for PayPal buttons -->
-    <div id="right-column">
-        <section id="checkoutButtons">
-            <!-- Add a button to clear the cart -->
-            <button onclick="clearCart()">Clear Cart</button>
-            <button onclick="continueShopping()">Continue Shopping</button>
-            <!--            <button onclick="proceedToCheckout()">Proceed to Checkout</button>-->
-        </section>
-
-        <!-- Container for the PayPal button -->
-        <div id="paypal-button-container"></div>
-    </div>
-
-    <!-- Check if the cart is not empty before displaying item preview and title -->
-    <div class="container" id="artworkContainer">
-        <div class="item-preview" id="artworkPreview">
-            <!-- Artwork preview will be dynamically added here -->
+<!--            &lt;!&ndash; Product 8 &ndash;&gt;-->
+<!--            <div class="artwork-item">-->
+<!--                <a href="../product%20details%20pages/artwork8.html">-->
+<!--                    <img src="../artwork%20images/buuterfly_jeans_front_preview.jpg" alt="Artwork 8">-->
+<!--                    <div class="artwork-details">-->
+<!--                        <h3>Butterfly Jeans</h3>-->
+<!--                        <button>View Products</button>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
+            <!-- Repeat similar blocks for additional products (later) -->
         </div>
-        <span class="artwork-title" id="artworkTitle"></span>
     </div>
-
-</div>
-
-
-<!-- Include your other scripts -->
-<!--<script src="../../app.js"></script>-->
+</section>
 
 <footer>
     &copy; 2023 Your Studio. All rights reserved.
@@ -393,94 +461,6 @@
 
     const searchInput = document.querySelector('.search-bar input');
     const searchIcon = document.querySelector('.search-icon');
-
-    // Function to continue shopping and navigate to the home page
-    function continueShopping() {
-        // Set the URL of the home page
-        // var homePageURL = "../shop.html";
-
-        // Navigate to the home page
-        window.location.href = "../main pages/shop.html";
-    }
-
-    // Load cart data from local storage
-    var cart = JSON.parse(localStorage.getItem('cart'));
-
-    // Check if cart is null or undefined, and initialize it as an empty array
-    cart = cart || [];
-
-    // Function to display items in the cart
-    function displayCartItems() {
-        var cartItemsList = document.getElementById('cartItemsList');
-        cartItemsList.innerHTML = ''; // Clear existing content
-
-        // Check if the cart is empty
-        if (!cart || cart.length === 0) {
-            // If the cart is empty or not initialized, display a message
-            var emptyCartMessage = document.createElement('p');
-            emptyCartMessage.textContent = 'Your cart is empty . . . get to shopping!';
-            cartItemsList.appendChild(emptyCartMessage);
-        } else {
-            // If the cart is not empty, generate and display item previews
-            for (var i = 0; i < cart.length; i++) {
-                var item = cart[i];
-                var listItem = document.createElement('li');
-                var itemDiv = document.createElement('div');
-                var imgDiv = document.createElement('div'); // Wrapper for the image
-                var img = document.createElement('img');
-                var detailsDiv = document.createElement('div'); // Wrapper for title and price
-                var title = document.createElement('span');
-                var price = document.createElement('span');
-
-                img.src = item.previewImage;
-                img.alt = item.title;
-                img.className = 'cart-item-image';
-
-                title.textContent = item.title;
-                price.textContent = ` - $${item.price.toFixed(0)}`;
-
-                // Add styles to the image wrapper and details wrapper
-                imgDiv.style.display = 'inline-block'; // Display image and details in the same line
-                detailsDiv.style.textAlign = 'center'; // Align text to the left
-
-                imgDiv.appendChild(img);
-                detailsDiv.appendChild(title);
-                detailsDiv.appendChild(price);
-                itemDiv.appendChild(imgDiv);
-                itemDiv.appendChild(detailsDiv);
-                listItem.appendChild(itemDiv);
-
-                cartItemsList.appendChild(listItem);
-            }
-        }
-    }
-
-    // Function to proceed to checkout (you can modify this function as needed)
-    function proceedToCheckout() {
-        // Implement the logic to navigate to the checkout page or perform other actions
-        // For example, you can use window.location.href = 'checkout.html';
-        alert('Proceeding to checkout');
-    }
-
-    // Function to clear the cart
-    function clearCart() {
-        // Clear the cart in local storage and in memory
-        localStorage.removeItem('cart');
-        cart = [];
-
-        // Update the displayed cart items
-        displayCartItems();
-
-        // You can also display a confirmation message or perform other actions
-        alert('Cart cleared');
-    }
-
-
-    // Call the displayCartItems function when the page loads
-    window.onload = function () {
-        console.log('Page loaded. Cart:', cart); // Add this line for debugging
-        displayCartItems();
-    };
 
     // search bar functionality
     // TODO: these products are hard-coded, but if there were a back-end server, the product inventory would be
@@ -508,7 +488,7 @@
         } else if (searchTerm === 'signup' || searchTerm === 'sign' || searchTerm === 'up' || searchTerm === 'ignup' || searchTerm === 'sign up') {
             window.location.href = '../header%20nav%20links/signup.html';
         } else if (searchTerm === 'checkout' || searchTerm === 'cart' || searchTerm === 'check out' || searchTerm === 'check' || searchTerm === 'pay') {
-            window.location.href = 'checkout.html';
+            window.location.href = '../product%20details%20pages/checkout.html';
         } else if (searchTerm === 'studio' || searchTerm === 'home' || searchTerm === 'jump' || searchTerm === 'display' || searchTerm === 'welcome') {
             window.location.href = '../../index.html';
 
@@ -550,31 +530,8 @@
             handleSearch();
         }
     });
-
 </script>
-
-<script>
-    paypal.Buttons({
-        createOrder: function(data, actions) {
-            // Set up the transaction details
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: '10.00' // Set the payment amount
-                    }
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            // Capture the funds when the user approves the payment
-            return actions.order.capture().then(function(details) {
-                // Call your server to save the transaction
-                alert('Transaction completed by ' + details.payer.name.given_name);
-            });
-        }
-    }).render('#paypal-button-container'); // Specify the container where the button will be rendered
-</script>
-
 
 </body>
+
 </html>

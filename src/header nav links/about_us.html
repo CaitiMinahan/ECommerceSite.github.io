@@ -360,6 +360,9 @@
 
 <script>
 
+    const searchInput = document.querySelector('.search-bar input');
+    const searchIcon = document.querySelector('.search-icon');
+
     // Add this at the beginning of your script tag
     // var cart = [];
 
@@ -395,6 +398,75 @@
     document.getElementById('viewStudioButton').addEventListener('click', function() {
         // Use window.location.href to navigate to the shop.html page
         window.location.href = '../main pages/shop.html';
+    });
+
+    // search bar functionality
+    // TODO: these products are hard-coded, but if there were a back-end server, the product inventory would be
+    // located in a database
+    const products = [
+        { id: 1, name: 'Sunflower Painting', category: 'Artwork', description: 'Beautiful sunflower painting.' },
+        { id: 2, name: 'Face Jeans', category: 'Artwork', description: 'Artistic depiction of a face on jeans.' },
+        // Add more product data as needed
+    ];
+
+    function handleSearch() {
+        // TODO: removed case sensitivity; add back in later if needed
+        const searchTerm = searchInput.value.trim();
+        // const searchTerm = searchInput.value.trim().toLowerCase();
+
+        // Example: Check for different search terms and redirect accordingly
+        if (searchTerm === 'gallery' || searchTerm === 'gall' || searchTerm === 'gal' || searchTerm === 'ga' || searchTerm === 'ery') {
+            window.location.href = '../header%20nav%20links/gallery.html';
+        } else if (searchTerm === 'about' || searchTerm === 'me' || searchTerm === 'artist' || searchTerm === 'caiti') {
+            window.location.href = '../header%20nav%20links/about_us.html';
+        } else if (searchTerm === 'login' || searchTerm === 'log in' || searchTerm === 'log' || searchTerm === 'gin' || searchTerm === 'in') {
+            window.location.href = '../header%20nav%20links/login_page.html';
+        } else if (searchTerm === 'shop' || searchTerm === 'browse' || searchTerm === 'products' || searchTerm === 'art') {
+            window.location.href = '../main%20pages/shop.html';
+        } else if (searchTerm === 'signup' || searchTerm === 'sign' || searchTerm === 'up' || searchTerm === 'ignup' || searchTerm === 'sign up') {
+            window.location.href = '../header%20nav%20links/signup.html';
+        } else if (searchTerm === 'checkout' || searchTerm === 'cart' || searchTerm === 'check out' || searchTerm === 'check' || searchTerm === 'pay') {
+            window.location.href = '../product details pages/checkout.html';
+        } else if (searchTerm === 'studio' || searchTerm === 'home' || searchTerm === 'jump' || searchTerm === 'display' || searchTerm === 'welcome') {
+            window.location.href = '../../index.html';
+
+            // now add conditions for redirecting to the correct product pages depending on the input
+        } else if (searchTerm === 'jeans' || searchTerm === 'painted jeans' || searchTerm === 'hand painted jeans' || searchTerm === 'custom jeans' || searchTerm === 'denim' || searchTerm === 'fabric') {
+            window.location.href = '../search result pages/jeans_search_results.html';
+        } else if (searchTerm === 'painting' || searchTerm === 'canvas' || searchTerm === 'wall' || searchTerm === 'acrylic') {
+            window.location.href = '../search result pages/painting_search_results.html';
+
+            // individual product search filters
+        } else if (searchTerm === 'faces jeans' || searchTerm === 'faces') {
+            window.location.href = '../product details pages/artwork2.html';
+        } else if ( searchTerm === 'daisy jeans' || searchTerm === 'daisy') {
+            window.location.href = '../product details pages/artwork5.html';
+        } else if (searchTerm === 'butterfly jeans' || searchTerm === 'butterfly') {
+            window.location.href = '../product details pages/artwork8.html';
+        } else if ( searchTerm === 'mushroom jeans'  || searchTerm === 'mushroom'){
+            window.location.href = '../product details pages/artwork7.html';
+
+        } else if (searchTerm === 'sunflower painting' || searchTerm === 'sunflower' || searchTerm === 'sunflower canvas') {
+            window.location.href = '../product details pages/artwork1.html';
+        } else if ( searchTerm === 'sunset painting' || searchTerm === 'sunset' || searchTerm === 'sunset canvas') {
+            window.location.href = '../product details pages/artwork3.html';
+        } else if (searchTerm === 'pumpkin painting' || searchTerm === 'pumpkin' || searchTerm === 'pumpkin canvas') {
+            window.location.href = '../product details pages/artwork4.html';
+        } else if ( searchTerm === 'moon painting'  || searchTerm === 'moon' || searchTerm === 'moon canvas'){
+            window.location.href = '../product details pages/artwork6.html';
+
+        } else {
+            // Handle the case where no matching term is found (e.g., display a message)
+            console.log('No matching term found.');
+            // TODO: redirect to a "No Results" page or display a message on the current page.
+        }
+    }
+
+    searchIcon.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
     });
 
     window.onload = function () {
