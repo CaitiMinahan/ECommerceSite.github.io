@@ -6,6 +6,32 @@
     log in
 </head>
 <body>
+<!--TODO: eventually will need to implement the server-side solution for log-ins-->
+<form id="loginForm">
+    <label for="username">Username/Email:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="button" onclick="handleLogin()">Login</button>
+</form>
+
+<script>
+    function handleLogin() {
+        // Get values from the form
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Implement authentication logic (e.g., check against a predefined username and password)
+        if (username === 'example' && password === 'password') {
+            // Redirect to the home page or another relevant page
+            window.location.href = 'index.html';
+        } else {
+            alert('Invalid username or password');
+        }
+    }
+</script>
 
 </body>
 </html>
