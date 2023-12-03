@@ -28,13 +28,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('../background images/background4.jpg') center/cover;
+            background: url('../background images/background_3.jpg') center/cover;
             opacity: 0.7; /* Adjust the opacity as needed */
             z-index: -1; /* Send it to the back */
         }
 
         header {
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.95);
             color: #edf5f1;
             display: flex;
             justify-content: center;
@@ -47,7 +47,7 @@
 
         h1 {
             /*font-size: 30px;*/
-            font-size: 2em;
+            font-size: 1em;
             font-family: 'Times New Roman', sans-serif;
             font-weight: bold;
             /*margin-bottom: auto; !* Push it to the top *!*/
@@ -73,7 +73,7 @@
         }
 
         nav ul li {
-            margin-inline: 92px; /* Adjust the spacing between the navigation links */
+            margin-inline: 90px; /* Adjust the spacing between the navigation links */
         }
 
         .logo-link {
@@ -104,13 +104,11 @@
 
         }
 
-        /*TODO: research how to implement login and signup*/
         .login-signin {
             display: flex;
             align-items: center;
         }
 
-        /*TODO: research how to implement search*/
         .search-bar {
             display: flex;
             align-items: center;
@@ -152,16 +150,18 @@
             /*padding-left: 5%;*/
         }
 
-        /*TODO: fill in about me text */
         #about-me-content {
             width: 60%;
             margin-bottom: auto;
-            background-color: #dddddd;
+            margin-top: 1.5%;
+            background-color: rgba(221, 221, 221, 0.75);
             padding-left: 1%;
+            font-size: 25px;
         }
 
         #about-me-image {
             width: 30%;
+            margin-top: 1.5%;
         }
 
         #about-me-image img {
@@ -194,22 +194,25 @@
             transition: color 0.3s ease-in-out;
             margin-right: 90px;
             margin-left: 50px;
-            margin-bottom: auto;
+            margin-bottom: 0;
         }
 
         .view-studio-button button {
             display: inline-flex;
-            padding: 5px 5px;
+            padding: 15px 15px;
             font-size: 24px;
             font-family: 'Times New Roman', sans-serif;
             text-decoration: none;
             color: #fff;
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.95);
             /*border: 2px solid #fff;*/
             border-radius: 5px;
             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
             width: 10%;
             justify-content: center;
+            margin-left: 25%;
+            margin-top: 1%;
+            margin-bottom: 0;
         }
 
         .view-studio-button button:hover {
@@ -218,12 +221,12 @@
         }
 
         footer {
-            background-color: rgba(8, 24, 6, 0.99);
+            background-color: rgba(42, 54, 45, 0.95);
             color: #fff;
             text-align: center;
             padding: 10px;
             width: 100%;
-            margin-top: 220px;
+            margin-top: 8%;
         }
 
         /* Media Query for Larger Screens */
@@ -242,7 +245,7 @@
             }
 
             nav {
-                font-size: 1.15em;
+                font-size: 1em;
             }
 
             nav ul {
@@ -275,7 +278,6 @@
     <!-- Your header content -->
     <div class="background"></div>
 
-    <!--    <h1>Artwork Details</h1>-->
     <div class="container">
         <nav>
             <ul>
@@ -283,20 +285,12 @@
                 <div class="login-signin">
                     <li><a href="../main%20pages/shop.html" class="section-link">Home</a></li>
                     <li><a href="../header%20nav%20links/gallery.html" class="section-link">Gallery</a></li>
-                    <li><a href="../header%20nav%20links/about_us.html" class="section-link">About Us</a></li>
+                    <li><a href="../header%20nav%20links/about_us.html" class="section-link">About Me</a></li>
                     <!--                    TODO: research how to implement login functionality for static sites-->
                     <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>
                     <!--                    TODO: research how to implement sign up functionality for static sites-->
                     <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
-<!--                    <li><a href="../product%20details%20pages/checkout.html" id="cartLink">-->
-<!--                        <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>-->
-<!--                    </a></li>-->
                 </div>
-
-<!--                <a href="../product%20details%20pages/checkout.html" id="cartLink">-->
-<!--                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>-->
-<!--                </a>-->
-
                 <li><a href="../product%20details%20pages/checkout.html" id="cartLink"><i class="fas fa-shopping-cart"></i></a></li>
 
                 <div class="search-bar">
@@ -314,16 +308,32 @@
 <section id="about-me-page">
     <div id="about-me-content">
         <h2>About Me</h2>
-        <p class="about-me-paragraph">Write your about me content here. Feel free to talk about your passion for art, your journey, and what inspires you.</p>
-        <p class="about-me-paragraph">Write more about yourself. You can include your artistic style, techniques, and any upcoming projects.</p>
+        <p class="about-me-paragraph">As an independent business owner and passionate artist, I take pride in creating
+            unique and one-of-a-kind pieces that are available for sale in my shop. My journey as an artist began at a
+            young age, fueled by a deep-seated passion for creative expression.</p>
+        <p class="about-me-paragraph">My artistic endeavors span a variety of mediums, showcasing a diverse range of
+            skills. Specializing in acrylic paintings, custom-painted denim, sewing tote bags, candle making, and
+            knitting, I bring a blend of creativity and craftsmanship to each piece. Every creation is a reflection of
+            my lifelong dedication to the art form.</p>
+        <p class="about-me-paragraph">Part of my mission is to create unique and special to each and every customer.
+            I find myself creating many personalized pieces because I love making meaningful art that will be cherished
+            for generations.</p>
+        <p class="about-me-paragraph">I also aim to practiced sustainability and zero-wasted with my artwork. As part
+            of my efforts to minimize waste found in landfills every day, many of my items, such as the totes and jeans
+            are made with up-cycled material. Additionally, I ship all my products using biodegradable packaging and try
+            my best to avoid using and purchasing plastics.</p>
+        <p class="about-me-paragraph">Enjoy browsing through my site and find something for yourself!</p>
         <!-- Add more paragraphs as needed -->
 
         <!-- Social media details -->
         <div id="social-media-container">
             <h4>Follow me online</h4>
-            <p class="about-me-paragraph">Connect with me on social media:</p>
-            <p class="about-me-paragraph">Twitter: @yourTwitter</p>
-            <p class="about-me-paragraph">Instagram: @yourInstagram</p>
+            <p class="about-me-paragraph">Connect with me on my social media!</p>
+            <p class="about-me-paragraph">YouTube: @CaitiMinahanStudio</p>
+            <p class="about-me-paragraph">Instagram: @CaitiMinahanStudio</p>
+            <p class="about-me-paragraph">TikTok: @CaitiMinahanStudio</p>
+            <p class="about-me-paragraph">Pinterest: @CaitiMinahanStudio</p>
+            <p class="about-me-paragraph">Check for regular posts and site updates!</p>
             <!-- Add more social media links as needed -->
         </div>
     </div>
