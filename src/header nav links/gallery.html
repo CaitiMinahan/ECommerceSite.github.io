@@ -22,19 +22,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('../background images/background4.jpg') center/cover;
+            background: url('../background images/background_2.jpg') center/cover;
             opacity: 0.7; /* Adjust the opacity as needed */
             z-index: -1; /* Send it to the back */
         }
 
         header {
-            background-color: #2a362d;
+            background-color: rgba(42, 54, 45, 0.95);
             color: #edf5f1;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column; /* Change flex direction to column */
-            align-items: center; /* Center items along the cross-axis (vertically) */
             font-size: 1.2em;
             height: 50px;
         }
@@ -98,13 +97,11 @@
 
         }
 
-        /*TODO: research how to implement login and signup*/
         .login-signin {
             display: flex;
             align-items: center;
         }
 
-        /*TODO: research how to implement search*/
         .search-bar {
             display: flex;
             align-items: center;
@@ -155,19 +152,21 @@
         }
 
         section#gallery h2 {
-            color: rgba(0, 0, 0, 0.96); /* Change this to the desired color */
-            font-size: 30px;
+            color: rgb(242, 250, 244); /* Change this to the desired color */
+            font-size: 27px;
             font-family: 'Times New Roman', sans-serif;
-            margin-top: 2%;
+            /*margin-top: 2%;*/
+            margin-top: 0;
             text-align: center;
+            background-color: rgba(77, 73, 47, 0.5); /* Add a background color behind the home section */
+
         }
 
         section#gallery {
-            height: 200%; /* Adjust the height to your preference */
+            height: 100%; /* Adjust the height to your preference */
             display: flex;
             flex-direction: column;
-            width: 80%;
-            margin: 0 auto;
+            width: 100%;
             /*margin-right: 2%;*/
             /*margin-left: 1%;*/
             justify-content: center;
@@ -184,11 +183,14 @@
 
         .artwork-item {
             position: relative;
-            margin-bottom: 10px;
+            /*margin-bottom: 10px;*/
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 5%;
         }
 
         .artwork-details {
@@ -259,9 +261,8 @@
             align-items: center;
         }
 
-        /*TODO: figure out how to center the text and push the footer to the bottom */
         footer {
-            background-color: rgba(8, 24, 6, 0.99);
+            background-color: rgba(8, 24, 6, 0.9);
             color: #fff;
             text-align: center;
             padding: 10px;
@@ -276,7 +277,7 @@
             }
 
             h1 {
-                font-size: 1.5em; /* Adjust the font size for larger screens */
+                font-size: 1.2em; /* Adjust the font size for larger screens */
                 margin-left: 10px;
             }
 
@@ -289,7 +290,7 @@
             }
 
             nav ul {
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
 
             .search-icon {
@@ -358,12 +359,11 @@
         <h2><a href="../header%20nav%20links/gallery.html" class="section-link">View Gallery</a></h2>
         <div class="artwork">
             <!-- Add your artwork images and details here -->
-            <!-- TODO: adjust image sizes to all be the same in paint -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork1.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 1">
+                    <img src="../artwork%20images/sunflower_painting_preview.jpg" alt="Artwork 1">
                     <div class="artwork-details">
-                        <h3>Artwork 1</h3>
+                        <h3>Sunflower Painting</h3>
                         <!--                        <p>Price: $100</p>-->
                         <button>View Products</button>
                     </div>
@@ -372,9 +372,9 @@
             <!-- Product 2 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork2.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 2">
+                    <img src="../artwork%20images/face_jeans_preview.jpg" alt="Artwork 2">
                     <div class="artwork-details">
-                        <h3>Artwork 2</h3>
+                        <h3>Abstract Faces Jeans</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -383,9 +383,9 @@
             <!-- Product 3 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork3.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 3">
+                    <img src="../artwork%20images/sunset_painting_preview.jpg" alt="Artwork 3">
                     <div class="artwork-details">
-                        <h3>Artwork 3</h3>
+                        <h3>Sunset Painting</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -394,9 +394,9 @@
             <!-- Product 4 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork4.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 4">
+                    <img src="../artwork%20images/pumpkin_painting_preview.jpg" alt="Artwork 4">
                     <div class="artwork-details">
-                        <h3>Artwork 4</h3>
+                        <h3>Pumpkin Painting</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -405,9 +405,9 @@
             <!-- Product 5 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork5.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 5">
+                    <img src="../artwork%20images/daisy_jeans_front_preview.jpg" alt="Artwork 5">
                     <div class="artwork-details">
-                        <h3>Artwork 5</h3>
+                        <h3>Daisy Jeans</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -416,9 +416,9 @@
             <!-- Product 6 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork2.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 6">
+                    <img src="../artwork%20images/moon_painting_preview.jpg" alt="Artwork 6">
                     <div class="artwork-details">
-                        <h3>Artwork 6</h3>
+                        <h3>Moon Painting</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -427,9 +427,9 @@
             <!-- Product 7 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork2.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 7">
+                    <img src="../artwork%20images/mushroom_jeans_front_preview.jpg" alt="Artwork 7">
                     <div class="artwork-details">
-                        <h3>Artwork 7</h3>
+                        <h3>Mushroom Jeans</h3>
                         <button>View Products</button>
                     </div>
                 </a>
@@ -438,9 +438,9 @@
             <!-- Product 8 -->
             <div class="artwork-item">
                 <a href="../product%20details%20pages/artwork2.html">
-                    <img src="../artwork%20images/art1.jpg" alt="Artwork 8">
+                    <img src="../artwork%20images/buuterfly_jeans_front_preview.jpg" alt="Artwork 8">
                     <div class="artwork-details">
-                        <h3>Artwork 8</h3>
+                        <h3>Butterfly Jeans</h3>
                         <button>View Products</button>
                     </div>
                 </a>
