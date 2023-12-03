@@ -1,11 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta charset="UTF-8">
-    <title>Title</title>
-    ladies and gentlemen, this is artwork no. 4
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    <base href="https://caitiminahan.github.io/ECommerceSite.github.io/">-->
+    <title>Product Details</title>
+    <style>
+
+        body {
+            height: 100%; /* Adjust the height to your preference */
+            font-family: 'Times New Roman', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            position: relative;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #edf5f1;
+            opacity: 0.2; /* Adjust the opacity as needed */
+            z-index: -1; /* Send it to the back */
+        }
+
+        header {
+            background-color: rgba(42, 54, 45, 0.97);
+            color: #edf5f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Change flex direction to column */
+            /*align-items: center; !* Center items along the cross-axis (vertically) *!*/
+            font-size: 1.2em;
+            height: 50px;
+        }
+
+        h1 {
+            /*font-size: 30px;*/
+            font-size: 2em;
+            font-family: 'Times New Roman', sans-serif;
+            font-weight: bold;
+            /*margin-bottom: auto; !* Push it to the top *!*/
+            margin-top: 20px;
+            display: flex;
+        }
+
+        nav {
+            margin-top: 0;
+            display: flex;
+            justify-content: center; /* Center items along the main axis (horizontally) */
+            align-items: center;
+            flex-grow: 1; /* Allow the nav to grow and take available space */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between; /* Distribute items along the main axis */
+            align-items: center;
+            width: 100%; /* Occupy the full width */
+        }
+
+        nav ul li {
+            margin-inline: 90px; /* Adjust the spacing between the navigation links */
+        }
+
+        .logo-link {
+            color: inherit; /* Use the default link color */
+            text-decoration: inherit; /* Use the default underline style */
+            cursor: pointer; /* Show pointer cursor on hover */
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+        }
+
+        .logo-link:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        nav ul li a {
+            color: #e7dee4; /* Default link color */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+            font-size: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        .search-bar{
+            display: flex;
+            align-items: center;
+
+        }
+
+        .login-signin {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            margin-right: 5px; /* Adjust the spacing between input and icon */
+            font-size: 1em;
+        }
+
+        .search-icon {
+            /*font-size: 18px;*/
+            font-size: 1em;
+            font-family: 'Times New Roman', sans-serif;
+            cursor: pointer;
+            color: #f2faf4; /* Adjust the color as needed */
+        }
+
+        .search-icon:hover {
+            color: rgba(135, 206, 155, 0.65); /* Adjust the color for the dimming effect */
+        }
+
+        .login-signin a {
+            color: #6f8f7e;
+            text-decoration: none;
+            text-align: left;
+            margin-top: auto; /* Push the nav to the bottom */
+            font-size: 1em;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%; /* Set container to full width */
+        }
+
+        section {
+            background-color: #fff;
+            padding: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 0 0 600px;
+            position: relative;
+            margin-left: 180px;
+            margin-top: 50px;
+            margin-bottom: 24%;
+        }
+
+        .image-previews {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .arrow {
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(0, 0, 0, 0.96);
+            /*background-color: #fff;*/
+            border: none;
+            outline: none;
+            opacity: 50%;
+        }
+
+        .arrow.left {
+            left: 10px;
+            background-color: rgba(246, 253, 248, 0.56);
+        }
+
+        .arrow.right {
+            right: 10px;
+            background-color: rgba(246, 253, 248, 0.56);
+        }
+
+        .details-section {
+            flex: 0 0 600px;
+            padding: 20px;
+            margin-right: 200px;
+            margin-top: 15px;
+        }
+
+        .item-details {
+            flex: 0 0 400px;
+            margin-top: 20px;
+        }
+
+        .shipping-and-returns-policy {
+            flex: 0 0 400px;
+            margin-top: 20px;
+        }
+
+        .meet-the-artist {
+            flex: 0 0 400px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: rgba(8, 51, 20, 0.65);
+            color: rgb(237, 248, 240);
+            padding: 8px 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+            margin-bottom: 15px;
+        }
+
+        button:hover {
+            background-color: rgba(14, 75, 31, 0.35);
+            color: rgba(14, 75, 31, 0.65);
+        }
+
+        footer {
+            background-color: rgba(8, 24, 6, 0.90);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            /*margin-top: auto;*/
+            margin-bottom: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .dropdown-content p {
+            margin: 0;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            margin-left: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .dropdown-toggle.open::after {
+            transform: rotate(180deg);
+        }
+
+        /* Media Query for Larger Screens */
+        @media screen and (min-width: 1600px) {
+            header {
+                font-size: 0.75em; /* Adjust the base font size for larger screens */
+            }
+
+            h1 {
+                font-size: 1.2em; /* Adjust the font size for larger screens */
+                margin-left: 10px;
+            }
+
+            nav ul li a {
+                font-size: 1em; /* Adjust the font size for larger screens */
+            }
+
+            nav {
+                font-size: 1.15em;
+            }
+
+            nav ul {
+                font-size: 1em;
+            }
+
+            .search-icon {
+                font-size: 1em; /* Adjust the font size for larger screens */
+            }
+
+            .search-bar {
+                font-size: 0.75em;
+            }
+
+            .search-bar input{
+                font-size: 1em;
+            }
+
+            body {
+                width: 100%;
+            }
+
+        }
+
+        /* Add this CSS for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Adjust the styles for the modal content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* Adjust vertical margin to center the modal */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 200px; /* Set a fixed width for the modal */
+            text-align: center; /* Center the text horizontally */
+        }
+
+        /* Add a close button for the modal */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Add styles for the OK button in your CSS */
+        .ok-button {
+            background-color: rgba(102, 136, 111, 0.65);
+            color: white;
+            padding: 5px 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 40px;
+            margin-left: -15px;
+            position: absolute;
+        }
+
+        /* Hover effect for the OK button */
+        .ok-button:hover {
+            background-color: rgba(8, 51, 20, 0.65);
+        }
+
+        /* Add this to your existing styles */
+        #cartLink {
+            color: #e7dee4; /* Adjust the color to match your design */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+        }
+
+        #cartLink:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        #cartInfo {
+            font-size: 1.5em; /* Adjust the font size for the icon */
+            margin-left: 5px; /* Adjust the spacing between icon and text */
+            display: flex;
+        }
+
+        /* Personalization form */
+        form {
+            /* Add this style to set the width of the form */
+            width: 100%;
+        }
+
+        /* Label for the personalization field */
+        label {
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Input field for personalization */
+        #personalize-field {
+            width: 100%; /* Adjust the width to your preference */
+            padding: 8px; /* Add padding for better appearance */
+            margin-bottom: 15px; /* Add margin for spacing */
+        }
+
+
+    </style>
 </head>
+
 <body>
 
+<header>
+
+    <!-- Your header content -->
+    <div class="background"></div>
+
+    <!--    <h1>Artwork Details</h1>-->
+    <div class="container">
+        <nav>
+            <ul>
+                <h1><a href="../../index.html" class="logo-link">Caiti Minahan Studio</a></h1>
+                <div class="login-signin">
+                    <li><a href="../main%20pages/shop.html" class="section-link">Home</a></li>
+                    <li><a href="../header%20nav%20links/gallery.html" class="section-link">Gallery</a></li>
+                    <li><a href="../header%20nav%20links/about_us.html" class="section-link">About Me</a></li>
+                    <!--                    TODO: research how to implement login functionality for static sites-->
+                    <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>
+                    <!--                    TODO: research how to implement sign up functionality for static sites-->
+                    <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
+                </div>
+
+                <a href="checkout.html" id="cartLink">
+                    <span id="cartInfo"><i class="fas fa-shopping-cart"></i></span>
+                </a>
+
+                <div class="search-bar">
+                    <!-- Search bar HTML -->
+                    <input type="text" placeholder="Search Studio . . .">
+                    <!-- Magnifying glass icon from Font Awesome -->
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                </div>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+
+<div class="container">
+    <section>
+        <div class="image-previews">
+            <div class="image-preview" onclick="showImage(1)">
+                <img src="../artwork%20images/pumpkin_painting.jpg" alt="Artwork 1">
+            </div>
+            <div class="image-preview" onclick="showImage(2)">
+                <!--                <img src="../artwork%20images/art2.jpg" alt="Artwork 2">-->
+            </div>
+            <!-- Add more image previews as needed -->
+        </div>
+
+        <img id="mainImage" src="../artwork%20images/pumpkin_painting.jpg" alt="Artwork 1">
+        <button class="arrow left" onclick="prevImage()">❮</button>
+        <button class="arrow right" onclick="nextImage()">❯</button>
+    </section>
+
+    <div class="details-section">
+        <h2>Product Details</h2>
+        <p>Original Piece: Pumpkin Painting</p>
+        <p>Price: $20.00</p>
+        <!--        <button>Add to Cart</button>-->
+        <button id="addToCartBtn" onclick="addToCart()">Add to Cart</button>
+
+        <div class="personalization-section">
+            <!-- New paragraph for estimated arrival date -->
+            <p id="arrival-date-paragraph">Order now and have it arrive by <span id="estimated-arrival-date"></span>.</p>
+            <h2>Add personalization here</h2>
+            <!--            <p>Enter personalization details</p>-->
+
+            <!--            TODO: research how to implement personalization-->
+            <!-- Personalization form -->
+            <form action="personalize.php" method="post">
+                <label for="personalize-field">Personalization Details:</label>
+                <input type="text" id="personalize-field" name="personalize" required>
+
+                <!-- Add any additional fields as needed -->
+
+                <button type="submit">Submit Personalization</button>
+            </form>
+        </div>
+
+        <div class="item-details">
+            <div class="dropdown-toggle" onclick="toggleDropdown('itemDetailsDropdown')">
+                <h2>Item Details</h2>
+                <span></span>
+            </div>
+            <div id="itemDetailsDropdown" class="dropdown-content">
+                <p>• 10x10 acrylic canvas painting.</p>
+                <p>• Valspar acrylic finish to prevent discoloration and scratches.</p>
+                <p>• Hanging canvas to mount on wall.</p>
+                <p>• Mounting not provided.</p>
+            </div>
+        </div>
+
+        <div class="shipping-and-returns-policy">
+            <div class="dropdown-toggle" onclick="toggleDropdown('shippingReturnsDropdown')">
+                <h2>Shipping and Returns Policy</h2>
+                <span></span>
+            </div>
+            <div id="shippingReturnsDropdown" class="dropdown-content">
+                <p>• Shipping is done through USPS.</p>
+                <p>• Delivery time depends on customer location.</p>
+            </div>
+        </div>
+
+        <div class="meet-the-artist">
+            <div class="dropdown-toggle" onclick="toggleDropdown('meetTheArtistDropdown')">
+                <h2>Meet the Artist</h2>
+                <span></span>
+            </div>
+            <div id="meetTheArtistDropdown" class="dropdown-content">
+                <p>Curious to see how I made this? Checkout my social media for the full video!</p>
+                <p>• YouTube: @CaitiMinahanStudio</p>
+                <p>• Instagram: @CaitiMinahanStudio</p>
+                <p>• TikTok: @CaitiMinahanStudio</p>
+            </div>
+        </div>
+
+        <!-- Add this at the end of your body -->
+        <div id="customModal" class="modal">
+            <div class="modal-content">
+                <!--                <span class="close" onclick="closeModal()">&times;</span>-->
+                <button class="ok-button" onclick="closeModal()">OK</button>
+                <p id="modalMessage"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<footer>
+    &copy; 2023 Your Studio. All rights reserved.
+</footer>
+
+<script>
+
+    // Add this at the beginning of your script tag
+    // var cart = [];
+
+    // Add this at the beginning of your script tag
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+    // Add this in your script tag
+    function addToCart() {
+        // Get the details of the current item (you may need to update this based on your actual data)
+        var currentItem = {
+            title: "Pumpkin Painting",
+            description: "Provide a detailed description of the artwork.",
+            price: 20.00,
+            previewImage: "../artwork%20images/pumpkin_painting_preview.jpg", // Add the previewImage property
+            // Add other details as needed
+        };
+
+        // Add the current item to the cart array
+        cart.push(currentItem);
+
+        // Update localStorage with the new cart data
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Show the custom modal
+        openModal("Item added to cart!");
+
+        // You can also update the cart icon or display the number of items in the cart
+        // For example, you can update a cart icon in your navigation bar
+        updateCartIcon();
+
+    }
+
+    function openModal(message) {
+        document.getElementById('modalMessage').textContent = message;
+        document.getElementById('customModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('customModal').style.display = 'none';
+    }
+
+    // Add this in your script tag
+    function updateCartIcon() {
+        // Get the cart information
+        var cartInfoElement = document.getElementById('cartInfo');
+        var cartLinkElement = document.getElementById('cartLink');
+
+        // Check if the cart is empty
+        if (cart.length === 0) {
+            // Update the cart information without the number of items
+            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+        } else {
+            // Update the cart information with the shopping cart icon and the number of items
+            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i> (' + cart.length + ')';
+        }
+
+        // Set the href attribute of the anchor tag
+        cartLinkElement.href = 'checkout.html'; // Replace with the actual URL
+    }
+
+    var currentIndex = 0;
+    var imageSources = [
+        '../artwork%20images/pumpkin_painting.jpg',
+        // Add more image sources as needed
+    ];
+
+    function showImage(index) {
+        currentIndex = index - 1;
+        updateMainImage();
+    }
+
+    function updateMainImage() {
+        var mainImage = document.getElementById('mainImage');
+        mainImage.src = imageSources[currentIndex];
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+        updateMainImage();
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % imageSources.length;
+        updateMainImage();
+    }
+
+    function toggleDropdown(dropdownId) {
+        var dropdownContent = document.getElementById(dropdownId);
+        var dropdownToggle = document.querySelector(`[onclick="toggleDropdown('${dropdownId}')"]`);
+
+        if (dropdownContent.style.display === 'none' || dropdownContent.style.display === '') {
+            dropdownContent.style.display = 'block';
+            dropdownToggle.classList.add('open');
+        } else {
+            dropdownContent.style.display = 'none';
+            dropdownToggle.classList.remove('open');
+        }
+    }
+
+    // Function to calculate the estimated arrival date
+    function calculateEstimatedArrivalDate() {
+        var currentDate = new Date();
+        var estimatedArrivalDate = new Date(currentDate);
+        estimatedArrivalDate.setDate(currentDate.getDate() + 5); // Adding 5 days
+
+        return estimatedArrivalDate.toDateString();
+    }
+
+    // Function to update the paragraph content
+    function updateEstimatedArrivalDate() {
+        var estimatedArrivalDateParagraph = document.getElementById('estimated-arrival-date');
+        var arrivalDateParagraph = document.getElementById('arrival-date-paragraph');
+
+        var estimatedDate = calculateEstimatedArrivalDate();
+        estimatedArrivalDateParagraph.textContent = estimatedDate;
+        arrivalDateParagraph.style.display = 'block'; // Show the paragraph
+    }
+
+    // Call the function when the page loads
+    // window.onload = updateEstimatedArrivalDate;
+
+    window.onload = function () {
+        console.log('Page loaded. Cart:', cart); // Add this line for debugging
+        updateCartIcon(); // Update the cart icon
+        updateEstimatedArrivalDate(); // Update the estimated arrival date
+    };
+
+</script>
+
 </body>
+
 </html>
