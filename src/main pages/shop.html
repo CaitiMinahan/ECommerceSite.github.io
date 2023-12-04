@@ -387,7 +387,7 @@
             align-items: center;
         }
 
-        /* Add this to your existing styles */
+        /*TODO: eventually will need to created a cart.js file for reflecting cart changes across entire site */
         #cartLink {
             color: #e7dee4; /* Adjust the color to match your design */
             text-decoration: none;
@@ -647,28 +647,6 @@
     const searchInput = document.querySelector('.search-bar input');
     const searchIcon = document.querySelector('.search-icon');
 
-    var cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Add this in your script tag
-    function updateCartIcon() {
-        // Get the cart information
-        var cartInfoElement = document.getElementById('cartInfo');
-        var cartLinkElement = document.getElementById('cartLink');
-
-        // Check if the cart is empty
-        if (cart.length === 0) {
-            // Update the cart information without the number of items
-            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
-        } else {
-            // Update the cart information with the shopping cart icon and the number of items
-            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i> (' + cart.length + ')';
-        }
-
-        // Set the href attribute of the anchor tag
-        cartLinkElement.href = 'checkout.html'; // Replace with the actual URL
-    }
-
-
 
     // search bar functionality
     // TODO: these products are hard-coded, but if there were a back-end server, the product inventory would be
@@ -744,6 +722,7 @@
     });
 
 </script>
+
 
 </body>
 
