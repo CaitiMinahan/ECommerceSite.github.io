@@ -4,6 +4,7 @@
 <head>
     <!-- include library for magnifying glass for search -->
     <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Art Gallery</title>
@@ -168,7 +169,7 @@
             font-family: 'Times New Roman', sans-serif;
             font-weight: bold;
             /*margin-bottom: auto; !* Push it to the top *!*/
-            margin-top: 5px;
+            /*margin-top: 5px;*/
         }
 
         nav {
@@ -386,6 +387,23 @@
             align-items: center;
         }
 
+        /* Add this to your existing styles */
+        #cartLink {
+            color: #e7dee4; /* Adjust the color to match your design */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+            margin-right: 20px;
+        }
+
+        #cartLink:hover {
+            color: #ff9900; /* Change this to the desired color on hover */
+        }
+
+        #cartInfo {
+            font-size: 1.5em; /* Adjust the font size for the icon */
+            margin-left: 5px; /* Adjust the spacing between icon and text */
+        }
+
         footer {
             background-color: rgba(42, 54, 45, 0.95);
             color: #fff;
@@ -449,11 +467,14 @@
                     <li><a href="shop.html" class="section-link">Home</a></li>
                     <li><a href="../header%20nav%20links/gallery.html" class="section-link">Gallery</a></li>
                     <li><a href="../header%20nav%20links/about_us.html" class="section-link">About Me</a></li>
-                    <!--                    TODO: research how to implement login functionality for static sites-->
-                    <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>
-                    <!--                    TODO: research how to implement sign up functionality for static sites-->
-                    <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>
+<!--                    &lt;!&ndash;                    TODO: research how to implement login functionality for static sites&ndash;&gt;-->
+<!--                    <li><a href="../header%20nav%20links/login_page.html" class="section-link">Login</a></li>-->
+<!--                    &lt;!&ndash;                    TODO: research how to implement sign up functionality for static sites&ndash;&gt;-->
+<!--                    <li><a href="../header%20nav%20links/signup.html" class="section-link">Sign Up</a></li>-->
+                    <li><a href="../product%20details%20pages/checkout.html" id="cartLink"><i class="fas fa-shopping-cart"></i></a></li>
+
                 </div>
+
                 <div class="search-bar">
                     <!-- Search bar HTML -->
                     <input type="text" placeholder="Search Studio . . .">
@@ -625,6 +646,29 @@
 <script>
     const searchInput = document.querySelector('.search-bar input');
     const searchIcon = document.querySelector('.search-icon');
+
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add this in your script tag
+    function updateCartIcon() {
+        // Get the cart information
+        var cartInfoElement = document.getElementById('cartInfo');
+        var cartLinkElement = document.getElementById('cartLink');
+
+        // Check if the cart is empty
+        if (cart.length === 0) {
+            // Update the cart information without the number of items
+            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+        } else {
+            // Update the cart information with the shopping cart icon and the number of items
+            cartInfoElement.innerHTML = '<i class="fas fa-shopping-cart"></i> (' + cart.length + ')';
+        }
+
+        // Set the href attribute of the anchor tag
+        cartLinkElement.href = 'checkout.html'; // Replace with the actual URL
+    }
+
+
 
     // search bar functionality
     // TODO: these products are hard-coded, but if there were a back-end server, the product inventory would be
