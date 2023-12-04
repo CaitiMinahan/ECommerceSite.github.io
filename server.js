@@ -6,6 +6,8 @@ import path from "path";
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 63342 } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
 const app = express();
+const cors = require('cors');
+app.use(cors());
 
 // host static files
 // app.use(express.static("client"));
@@ -191,6 +193,10 @@ app.get("/", (req, res) => {
     // res.sendFile(path.resolve("./client/checkout.html"));
     // res.sendFile(path.resolve("./src/header nav links/login_page.html"));
     res.sendFile(path.resolve("./src/product details pages/checkout.html"));
+});
+
+app.post('/personalize', (req, res) => {
+    // Handle the form submission logic here
 });
 
 app.listen(PORT, () => {
