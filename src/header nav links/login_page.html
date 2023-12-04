@@ -8,14 +8,35 @@
 <body>
 <!--TODO: eventually will need to implement the server-side solution for log-ins-->
 <form id="loginForm">
-    <label for="username">Username/Email:</label>
+    <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
 
-    <button type="button" onclick="handleLogin()">Login</button>
+    <button type="submit">Login</button>
 </form>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(Object.fromEntries(formData)),
+        });
+
+        const result = await response.json();
+        console.log(result);
+
+        // Call the handleLogin function here
+        handleLogin();
+    });
+</script>
 
 <script>
     function handleLogin() {
@@ -23,15 +44,33 @@
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        // Implement authentication logic (e.g., check against a predefined username and password)
-        if (username === 'example' && password === 'password') {
-            // Redirect to the home page or another relevant page
-            window.location.href = 'index.html';
+        // console.log('Username:', username);  // Add this line
+        // console.log('Password:', password);  // Add this line
+
+        // Check if the provided username and password match a valid user
+        const validUsers = [
+            { username: 'example', password: 'password' },
+            // Add more valid users as needed
+        ];
+
+        const isValidUser = validUsers.some(user =>
+            user.username.toLowerCase() === username.toLowerCase() &&
+            user.password === password
+        );
+
+        if (isValidUser) {
+            // Implement logic for successful login (e.g., store user session information)
+            alert('Login successful! Redirecting to the home page.');
+            window.location.href = '../../index.html'; // Redirect to the home page or another relevant page
         } else {
-            alert('Invalid username or password');
+            // Notify the user that login failed
+            alert('Invalid username or password. Please try again.');
+            console.log('Invalid username or password. Please try again.');  // Add this line
         }
     }
 </script>
+
+<script src="../../login.js"></script>
 
 </body>
 </html>

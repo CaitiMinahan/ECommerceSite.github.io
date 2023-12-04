@@ -8,7 +8,12 @@ const base = "https://api-m.sandbox.paypal.com";
 const app = express();
 
 // host static files
-app.use(express.static("client"));
+// app.use(express.static("client"));
+app.use(express.static("ECommerceSite.github.io"));
+// app.use(express.static(path.join(__dirname, "ECommerceSite.github.io")));
+// host static files
+// app.use(express.static("../src/artwork images"));
+
 
 // parse post params sent in body in json format
 app.use(express.json());
@@ -119,6 +124,44 @@ async function handleResponse(response) {
     }
 }
 
+// In-memory user data
+const users = [
+    { username: 'example', password: 'password', id: 1 },
+    // Add more user data as needed
+];
+
+// Authentication middleware
+function authenticateUser(req, res, next) {
+    const { username, password } = req.body;
+
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+        req.user = user;
+        next();
+    } else {
+        res.status(401).json({ message: 'Authentication failed' });
+    }
+}
+
+// Login route using authentication middleware
+// Handle login request
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    // Check username and password (replace with your authentication logic)
+    if (username === 'example' && password === 'password') {
+        res.json({ success: true, message: 'Login successful' });
+    } else {
+        res.status(401).json({ success: false, message: 'Invalid credentials' });
+    }
+});
+
+// Protected route
+app.get('/protected', authenticateUser, (req, res) => {
+    res.json({ message: 'Protected resource', user: req.user });
+});
+
 app.post("/api/orders", async (req, res) => {
     try {
         // use the cart information passed from the front-end to calculate the order amount detals
@@ -142,9 +185,12 @@ app.post("/api/orders/:orderID/capture", async (req, res) => {
     }
 });
 
-// serve shop.html
+// serve login_page.html
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("./client/checkout.html"));
+    // TODO: edit these to simulate server-side behavior
+    // res.sendFile(path.resolve("./client/checkout.html"));
+    // res.sendFile(path.resolve("./src/header nav links/login_page.html"));
+    res.sendFile(path.resolve("./src/product details pages/checkout.html"));
 });
 
 app.listen(PORT, () => {
