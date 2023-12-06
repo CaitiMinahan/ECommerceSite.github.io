@@ -6,8 +6,8 @@ import path from "path";
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 63342 } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
 const app = express();
-const cors = require('cors');
-app.use(cors());
+// const cors = require('cors');
+// app.use(cors());
 
 // host static files
 // app.use(express.static("client"));
