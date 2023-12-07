@@ -108,31 +108,23 @@ The reason a local server is required for the payment method is because without 
 ### Debugging Process
 When it came to debugging the client-side code, that was a matter of trial and error. When iterating through various designs of the web pages, I would make a small change to the HTML and CSS and then refresh the page to see what, if anything changed. This was a painful process at times, but through trial and error, I discovered what styling techniques I liked for my site, and I was able to land on the final design I have now.
 
-For debugging the server-side code, this involved running the server.js (part of the server-side code) and followig the detailed debugging logs found in the console. For example, when troubleshooting the payment gateway, I ran into some issues with some lines were written in the dependencies file (package.json). Since the error messages were quite descriptive, I was able to locate the exact lines which needed fixed. An image of the console messages are below: 
+For debugging the server-side code, this involved running the server.js (part of the server-side code) and following the detailed debugging logs found in the console. For example, when troubleshooting the payment gateway, I ran into some issues with some lines were written in the dependencies file (package.json). Since the error messages were quite descriptive, I was able to locate the exact lines which needed fixed. An image of the console messages are below: 
 ![img_18.png](img_18.png)
 
-### Video Demonstrations
-For a comprehensive view of the design, please refer to the demonstration videos hosted on [YouTube](insert_link) or [GitHub](insert_link).
 
 ## Summary, Conclusions, and Future Work
 
 ### Project Summary
-In conclusion, this project successfully delivered a static e-commerce website with [highlight major achievements].
+In conclusion, this project successfully delivered a static e-commerce website with dynamic features for the payment gateway, secure encryption protocols using HTTPS and custom HTML, CSS and JavaScript for my desired styling and functionality.
 
 ### Conclusions
-Key learnings from this assignment include [mention lessons learned, e.g., importance of thorough testing, effective collaboration].
+Key learnings from this assignment include the importance of learning the difference between static and dynamic website development, when either type is preferred, and how to implement a mix of both to suit my needs for an e-commerce website. 
+Since there are ample resources available online to learn about website development, I would recommend following YouTube tutorials from different people and taking bits and pieces from each to incorporate into your own design. 
+
+Additionally, I highly recommend following a framework when developing a website because it allows you to build off of well-structured templates and modify it according to the site's specific needs. 
+In my case, following the express.js framework was useful for implementing the payment processing because it allowed me to integrate PayPal's third-party API to create a payment gateway after checking out. Express is well-suited for building RESTful APIs, which allows for a clean separation between the frontend and backend code of the website. 
 
 ### Future Work
-If there were to be another design iteration, improvements could be made in [suggest areas for improvement, e.g., user authentication, additional features]. These potential enhancements are discussed in [Appendix H].
+Concluding this project submission, I plan to continue developing the server-side code for my website. I have a few items in my backlog for dynamic features that I wish to eventually implement, such as creating a full-functional method for submitting customization requests for orders, and creating login/signup pages for users who wish to create an account.
 
----
-
-**Appendices:**
-- [Appendix A: References and Inspirations](docs/appendix_a.md)
-- [Appendix B: Test Plan and Procedures](docs/appendix_b.md)
-- [Appendix C: Preliminary Testing Images](docs/appendix_c.md)
-- [Appendix D: Subcomponents Details](docs/appendix_d.md)
-- [Appendix E: Design Process Challenges](docs/appendix_e.md)
-- [Appendix F: Final Testing Results](docs/appendix_f.md)
-- [Appendix G: Debugging Logs](docs/appendix_g.md)
-- [Appendix H: Future Work Recommendations](docs/appendix_h.md)
+The final step of implementing my own e-commerce site will be to purchase a Virtual Private Server (VPS) for continuously running a server to allow my site to be accessed by users at any time and purchase their artwork at their convenience. 
